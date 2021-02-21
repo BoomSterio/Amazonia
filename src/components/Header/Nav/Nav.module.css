@@ -16,15 +16,25 @@
 }
 
 .optionLineTwo {
+    display: flex;
+    align-items: center;
     font-size: 14px;
     font-weight: 700;
     margin-top: -4px;
+}
+
+.dropDownIcon {
+    align-self: flex-end;
+    font-size: 16px;
+    color: lightgray;
 }
 
 .optionCart {
     flex-direction: row;
     align-items: center;
     margin-right: 15px;
+    color: inherit;
+    text-decoration: inherit;
 }
 
 .basketCount {

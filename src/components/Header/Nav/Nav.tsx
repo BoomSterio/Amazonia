@@ -1,22 +1,24 @@
 import React from 'react'
 import styles from './Nav.module.css'
-import {ShoppingCartOutlined} from '@material-ui/icons'
+import {ArrowDropDown, ShoppingCartOutlined} from '@material-ui/icons'
+import {Link} from 'react-router-dom'
 
 const Nav: React.FC = () => {
     return (
         <div className={styles.nav}>
             <div className={styles.option}>
                 <span className={styles.optionLineOne}>Hello, Sally</span>
-                <span className={styles.optionLineTwo}>Account & Lists</span>
+                <span className={styles.optionLineTwo}>Account & Lists<ArrowDropDown className={styles.dropDownIcon}/></span>
             </div>
             <div className={styles.option}>
                 <span className={styles.optionLineOne}>Returns</span>
                 <span className={styles.optionLineTwo}>& Orders</span>
             </div>
-            <div className={`${styles.option} ${styles.optionCart}`}>
+            <Link to={'/checkout'} className={`${styles.option} ${styles.optionCart}`}
+                  style={{color: 'inherit', textDecoration: 'inherit'}}>
                 <ShoppingCartOutlined/>
                 <span className={styles.basketCount}>0</span>
-            </div>
+            </Link>
         </div>
     )
 }

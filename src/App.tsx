@@ -1,20 +1,23 @@
-import './App.css';
+import './App.css'
 import React, {FC} from 'react'
 import Header from './components/Header/Header'
 import HomePage from './components/HomePage/HomePage'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
+import CheckoutPage from './components/CheckoutPage/CheckoutPage'
 
 const App: FC = () => {
-  return (
-    <div className="app">
-        <Header/>
+    return (
         <BrowserRouter>
-            <Switch>
-                <Route path={'/'} render={() => <HomePage/>}/>
-            </Switch>
+            <div className="app">
+                <Header/>
+                <Switch>
+                    <Route exact path={'/'}><HomePage/></Route>
+                    <Route path={'/checkout'} ><CheckoutPage/></Route>
+                    <Redirect from={'*'} to={'/'}/>
+                </Switch>
+            </div>
         </BrowserRouter>
-    </div>
-  );
+    )
 }
 
-export default App;
+export default App
