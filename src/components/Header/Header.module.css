@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #131921;
+    height: 60px;
+}
+
+.logo {
+    height: 36px;
+    object-fit: contain;
+    padding: 6px 8px 0 6px;
+    margin-left: 15px;
+}
