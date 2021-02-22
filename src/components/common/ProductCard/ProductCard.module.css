@@ -66,7 +66,9 @@
 }
 
 @media (max-width: 676px) {
-    .image {
-        max-height: 110px;
+    .product {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
     }
 }

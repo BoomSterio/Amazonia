@@ -11,26 +11,26 @@ const HomePage: React.FC = () => {
                 <img className={styles.image} src={toysBG} alt={'home'}/>
                 <div className={styles.row}>
                     <ProductCard title={'Guitar Fender CD-60SCE Black'}
-                                 price={349.99} rating={4.6}
+                                 id={27834678} price={349.99} rating={4.6}
                                  image={'https://images-na.ssl-images-amazon.com/images/I/61Uqh9quU5L._AC_SL1500_.jpg'}/>
                     <ProductCard title={'The Bose SoundLink Revolve, the Portable Bluetooth Speaker with 360 Wireless Surround Sound, Triple Black'}
-                        price={89.99} rating={1.3}
+                        id={7824878} price={89.99} rating={1.3}
                         image={'https://images-na.ssl-images-amazon.com/images/I/81ipKYwWZBL._AC_SL1500_.jpg'}/>
                 </div>
                 <div className={styles.row}>
                     <ProductCard title={'Victrola Vintage 3-Speed Bluetooth Portable Suitcase Record Player with Built-in Speakers | Upgraded Turntable Audio Sound| Includes Extra Stylus | Turquoise, Model Number: VSC-550BT-TQ'}
-                                 price={145.59} rating={4.2}
+                                 id={12573020} price={145.59} rating={4.2}
                                  image={'https://m.media-amazon.com/images/I/71nhlV3s1gL._AC_SL1500_.jpg'}/>
                     <ProductCard title={'2020 Apple iPad Pro (11-inch, Wi-Fi, 1TB) - Space Gray (4th Generation)'}
-                                 price={1394.92} rating={3.9}
+                                 id={2359956} price={1394.92} rating={3.9}
                                  image={'https://images-na.ssl-images-amazon.com/images/I/815ztYEEwYL._AC_SL1500_.jpg'}/>
-                    <ProductCard title={'Monopoly Classic Game'}
+                    <ProductCard id={9294328} title={'Monopoly Classic Game'}
                                  price={22.99} rating={4.9}
                                  image={'https://images-na.ssl-images-amazon.com/images/I/81qy%2BMXuxDL._AC_SL1392_.jpg'}/>
                 </div>
                 <div className={styles.row}>
                     <ProductCard title={'Mirage Vision Diamond 4K QLED (1000NITS) (MV82DQ) Outdoor TV'}
-                                 price={8950} rating={4.5}
+                                 id={363634} price={8950} rating={4.5}
                                  image={'https://images-na.ssl-images-amazon.com/images/I/61S8dTuTZmL._AC_SL1250_.jpg'}/>
                 </div>
             </div>

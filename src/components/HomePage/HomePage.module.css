@@ -27,3 +27,12 @@
         margin-bottom: -150px;
     }
 }
+
+@media (max-width: 676px) {
+    .image {
+        display: none;
+    }
+    .row {
+        flex-direction: column;
+    }
+}

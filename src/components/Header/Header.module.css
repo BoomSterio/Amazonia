@@ -12,3 +12,9 @@
     padding: 6px 8px 0 6px;
     margin-left: 15px;
 }
+
+@media (max-width: 676px) {
+    .logo {
+        display: none;
+    }
+}

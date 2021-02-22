@@ -1,9 +1,12 @@
 import React from 'react'
 import styles from './ProductCard.module.css'
 import {Rating} from '@material-ui/lab'
+import {useDispatch} from 'react-redux'
+import {cartActions} from '../../../redux/actions/cart-actions'
+import {createToast} from '../Toast/Toast'
 
 type Props = {
-    id?: number,
+    id: number,
     title: string,
     image: string,
     price: number,
@@ -11,6 +14,21 @@ type Props = {
 }
 
 const ProductCard: React.FC<Props> = ({id, title, image, price, rating}) => {
+    const dispatch = useDispatch()
+
+    const addToBasket = () => {
+        dispatch(cartActions.addToCart(
+            {
+                id,
+                title,
+                image,
+                price,
+                rating
+            }))
+
+        createToast(title, image)
+    }
+
     return (
         <div className={styles.product}>
             <img className={styles.image} src={image} alt={'product'}/>
@@ -25,7 +43,9 @@ const ProductCard: React.FC<Props> = ({id, title, image, price, rating}) => {
                     <strong>{price}</strong>
                 </p>
             </div>
-            <button className={styles.toCart}>Add to cart</button>
+            <button className={styles.toCart} onClick={addToBasket}>
+                Add to cart
+            </button>
         </div>
     )
 }

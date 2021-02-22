@@ -1,0 +1,30 @@
+.toast {
+    display: flex;
+    align-items: flex-start;
+}
+
+.container {
+    display: none;
+}
+
+.progress {
+
+}
+
+.toast h4 {
+    font-weight: 600;
+    color: black;
+    margin-left: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.image {
+    height: 100px;
+    max-width: 110px;
+    object-fit: contain;
+
+}
