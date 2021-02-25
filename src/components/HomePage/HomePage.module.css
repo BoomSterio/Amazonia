@@ -6,6 +6,7 @@
 }
 
 .container {
+
 }
 
 .row {
@@ -14,25 +15,11 @@
     margin: 0 5px;
 }
 
-.image {
-    width: 100%;
-    position: relative;
-    z-index: -1;
-    margin-bottom: -190px;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 20%, transparent);
-}
-
 @media (max-width: 1100px) {
-    .image {
-        margin-bottom: -150px;
-    }
-}
-
-@media (max-width: 676px) {
-    .image {
-        display: none;
-    }
     .row {
         flex-direction: column;
+    }
+    .container{
+        padding: 10px;
     }
 }

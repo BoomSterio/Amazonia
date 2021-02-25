@@ -1,32 +1,36 @@
-import React from 'react'
+import React, {ChangeEvent, useState} from 'react'
 import styles from './ProductCard.module.css'
 import {Rating} from '@material-ui/lab'
 import {useDispatch} from 'react-redux'
-import {cartActions} from '../../../redux/actions/cart-actions'
+import {checkoutActions} from '../../../redux/actions/checkout-actions'
 import {createToast} from '../Toast/Toast'
+// @ts-ignore
+import {default as CurrencyFormat} from 'react-currency-format'
+import {ProductType} from '../../../types/types'
+import {Input} from '@material-ui/core'
 
-type Props = {
-    id: number,
-    title: string,
-    image: string,
-    price: number,
-    rating: number
-}
+const ProductCard: React.FC<ProductType> = ({id, title, image, price, rating}) => {
+    const [quantity, setQuantity] = useState(1)
 
-const ProductCard: React.FC<Props> = ({id, title, image, price, rating}) => {
     const dispatch = useDispatch()
 
     const addToBasket = () => {
-        dispatch(cartActions.addToCart(
+        dispatch(checkoutActions.addToCart(
             {
                 id,
                 title,
                 image,
                 price,
-                rating
+                rating,
+                quantity: quantity
             }))
 
-        createToast(title, image)
+        createToast(title, image, quantity)
+    }
+
+    const changeQuality = (e: ChangeEvent<HTMLInputElement>) => {
+        if(Number(e.target.value) <= 100 && Number(e.target.value) > 0)
+            setQuantity(Number(e.target.value))
     }
 
     return (
@@ -38,14 +42,26 @@ const ProductCard: React.FC<Props> = ({id, title, image, price, rating}) => {
                     <Rating size={'small'} defaultValue={rating} precision={0.5} readOnly />
                     <p>{rating}</p>
                 </div>
-                <p className={styles.price}>
-                    <small>$</small>
-                    <strong>{price}</strong>
-                </p>
+                <CurrencyFormat
+                    renderText={(value: number) => (
+                        <p className={styles.price}>
+                            <small>$</small>
+                            <strong>{value}</strong>
+                        </p>
+                    )}
+                    decimalScale={2}
+                    value={price}
+                    displayType={'text'}
+                    thousandSeparator
+                />
             </div>
-            <button className={styles.toCart} onClick={addToBasket}>
-                Add to cart
-            </button>
+            <div className={styles.toCart}>
+                <small>Qty: </small>
+                <Input className={styles.quantity} onChange={changeQuality} inputProps={{min: 1, max: 100}} disableUnderline type={'number'} value={quantity}/>
+                <button className={styles.toCartBtn} onClick={addToBasket}>
+                    Add to cart
+                </button>
+            </div>
         </div>
     )
 }

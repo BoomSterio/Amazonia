@@ -1,0 +1,6 @@
+
+@media (min-width: 481px) {
+    .Toastify__toast-container {
+        width: 400px !important;
+    }
+}

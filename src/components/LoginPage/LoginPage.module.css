@@ -1,0 +1,105 @@
+.login {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    align-self: center;
+}
+
+.logo {
+    width: 103px;
+    height: 31px;
+    object-fit: contain;
+    margin: 12px 0;
+}
+
+.window {
+    display: flex;
+    flex-direction: column;
+    width: 295px;
+    padding: 18px 26px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.window h1 {
+    font-weight: 400;
+    font-size: 28px;
+}
+.pageEnd {
+    margin-top: 30px;
+    width: 100%;
+    height: 3px;
+    border: none;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(153,153,153,0.5) 50%, rgba(242,242,242,1) 100%);
+}
+
+.formControl {
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+.input {
+    transition: all .3s;
+}
+
+.input:focus-within {
+    -webkit-box-shadow: 0px 0px 4px 3px rgba(241, 145, 2, 0.58);
+    -moz-box-shadow: 0px 0px 4px 3px rgba(241, 145, 2, 0.58);
+    box-shadow: 0px 0px 4px 3px rgba(241, 145, 2, 0.58);
+}
+
+.submit {
+    align-self: center;
+    width: 100%;
+    height: 29px;
+    background: linear-gradient(rgb(254, 230, 176), rgb(238, 186, 55)) rgb(254, 230, 176);
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+    border-radius: 4px;
+    margin-top: 15px;
+    color: #111;
+    inset: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.submit:hover {
+    background: rgb(238, 186, 55);
+}
+
+.window p {
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 12px;
+    color: darkgray;
+    margin-bottom: 10px;
+    white-space: nowrap
+}
+
+.divider hr {
+    width: 100%;
+    margin: 0 5px;
+    border: none;
+    height: 1px;
+    background: lightgray;
+}
+
+.signupBtn {
+    height: 29px;
+    width: 100%;
+}

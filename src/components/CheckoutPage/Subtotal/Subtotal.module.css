@@ -41,3 +41,10 @@
 .subtotal button:hover {
     background: rgb(238, 186, 55);
 }
+
+@media (max-width: 676px) {
+    .subtotal {
+        width: inherit;
+        border-bottom: 1px solid lightgray;
+    }
+}

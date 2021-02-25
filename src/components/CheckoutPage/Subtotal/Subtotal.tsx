@@ -4,17 +4,18 @@ import styles from './Subtotal.module.css'
 import {default as CurrencyFormat} from 'react-currency-format'
 
 type Props = {
-    value?: number
+    total: number,
+    count: number
 }
 
-const Subtotal: React.FC<Props> = ({value}) => {
+const Subtotal: React.FC<Props> = ({total = 0, count}) => {
     return (
         <div className={styles.subtotal}>
             <CurrencyFormat
                 renderText={(value: number) => (
                     <>
                         <p>
-                            Subtotal (0 items): <strong>{value}</strong>
+                            Subtotal ({count} items): <strong>{value}</strong>
                         </p>
                         <small className={styles.gift}>
                             <input type={'checkbox'}/>
@@ -24,7 +25,7 @@ const Subtotal: React.FC<Props> = ({value}) => {
                     </>
                 )}
                 decimalScale={2}
-                value={0}
+                value={total}
                 displayType={'text'}
                 prefix={'$'}
                 thousandSeparator

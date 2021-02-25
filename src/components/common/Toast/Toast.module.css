@@ -14,7 +14,6 @@
 .toast h4 {
     font-weight: 600;
     color: black;
-    margin-left: 6px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -27,4 +26,19 @@
     max-width: 110px;
     object-fit: contain;
 
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6px;
+}
+
+@media (max-width: 767px) {
+    .image {
+        display: none;
+    }
+    .toast h4 {
+        -webkit-line-clamp: 1;
+    }
 }

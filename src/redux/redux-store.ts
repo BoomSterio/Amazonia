@@ -1,8 +1,8 @@
 import {combineReducers, createStore} from 'redux'
-import cartReducer from './reducers/cart-reducer'
+import checkoutReducer from './reducers/checkout-reducer'
 
 let rootReducer = combineReducers({
-    cart: cartReducer
+    checkout: checkoutReducer
 })
 
 type RootReducerType = typeof rootReducer;

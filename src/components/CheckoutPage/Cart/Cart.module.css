@@ -1,0 +1,17 @@
+.cart {
+    background-color: white;
+    padding: 0 20px;
+}
+
+.title {
+    padding-top: 10px;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.cart p {
+    font-size: 14px;
+    color: #565959;
+    font-weight: 500;
+    text-align: right;
+}

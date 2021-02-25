@@ -8,17 +8,20 @@
     margin-right: 20px;
 }
 
-.cart {
-    background-color: white;
-}
-
-.title {
-    margin-right: 10px;
-    padding: 10px;
-    border-bottom: 1px solid lightgray;
-}
-
 .ad {
     width: 100%;
     margin-bottom: 10px;
+}
+
+@media (max-width: 676px) {
+    .checkout {
+        flex-direction: column-reverse;
+        padding: 5px;
+    }
+    .left{
+        margin: 0;
+    }
+    .ad{
+        display: none;
+    }
 }

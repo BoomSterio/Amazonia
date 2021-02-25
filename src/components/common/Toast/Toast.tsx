@@ -6,12 +6,13 @@ import {toast, ToastContainer} from 'react-toastify'
 type Props = {
     title: string,
     image: string,
+    quantity: number
 }
 
-export const createToast = (title: string, image: string) => {
+export const createToast = (title: string, image: string, quantity: number) => {
     toast.configure()
-    toast(<Toast title={title} image={image}/>, {
-        position: toast.POSITION.TOP_RIGHT,
+    toast(<Toast title={title} image={image} quantity={quantity}/>, {
+        position: toast.POSITION.BOTTOM_RIGHT,
         autoClose: 8000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -23,11 +24,15 @@ export const createToast = (title: string, image: string) => {
     })
 }
 
-const Toast: React.FC<Props> = ({title, image}) => {
+const Toast: React.FC<Props> = ({title, image, quantity}) => {
     return (
         <div className={styles.toast}>
             <img className={styles.image} src={image} alt={'toast'}/>
-            <h4>{title}</h4>
+            <div className={styles.info}>
+                <h4>{title}</h4>
+                <small>X{quantity}</small>
+                {/*<small>Click to close</small>*/}
+            </div>
         </div>
     )
 }
