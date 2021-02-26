@@ -13,7 +13,7 @@ export const createToast = (title: string, image: string, quantity: number) => {
     toast.configure()
     toast(<Toast title={title} image={image} quantity={quantity}/>, {
         position: toast.POSITION.BOTTOM_RIGHT,
-        autoClose: 8000,
+        autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
