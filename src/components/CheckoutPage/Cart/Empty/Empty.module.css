@@ -1,0 +1,27 @@
+.empty {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.image {
+    width: 32%;
+    object-fit: contain;
+}
+
+.info {
+    width: 100%;
+    margin-left: 10px;
+}
+
+.info span {
+    font-size: 14px;
+    color: #007185;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.info span:hover {
+    color: #f08804;
+    text-decoration: underline;
+}

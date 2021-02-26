@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux'
 import {getCartCount} from '../../../redux/selectors/checkout-selectors'
 import {Backdrop, createStyles, makeStyles, Popover, Theme} from '@material-ui/core'
 import MenuDrop from './MenuDrop/MenuDrop'
+import {getAuthUser, getIsAuth} from '../../../redux/selectors/auth-selectors'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -18,6 +19,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Nav: React.FC = () => {
     const itemsInCart = useSelector(getCartCount)
+    const isAuth = useSelector(getIsAuth)
+    const user = useSelector(getAuthUser)
     const classes = useStyles()
 
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
@@ -36,7 +39,7 @@ const Nav: React.FC = () => {
     return (
         <div className={styles.nav}>
             <div className={styles.option} id={'#menuDrop'} onClick={handleClick}>
-                <span className={styles.optionLineOne}>Hello, Sally</span>
+                <span className={styles.optionLineOne}>Hello, {isAuth ? (user.name ? user.name : user.email) : 'Sign In'}</span>
                 <span className={styles.optionLineTwo}>Account & Lists<ArrowDropDown
                     className={styles.dropDownIcon}/></span>
             </div>

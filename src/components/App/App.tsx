@@ -1,16 +1,23 @@
 import './App.css'
-import React from 'react'
+import React, {useEffect} from 'react'
 import Header from '../Header/Header'
 import HomePage from '../HomePage/HomePage'
 import {BrowserRouter, Redirect, Route, RouteComponentProps, Switch, withRouter} from 'react-router-dom'
 import CheckoutPage from '../CheckoutPage/CheckoutPage'
-import {Provider} from 'react-redux'
+import {Provider, useDispatch} from 'react-redux'
 import store from '../../redux/redux-store'
 import 'react-toastify/dist/ReactToastify.css'
 import {ToastContainer} from 'react-toastify'
 import LoginPage from '../LoginPage/LoginPage'
+import {startAuthStateListening} from '../../redux/thunks/auth-thunks'
 
 const App = withRouter((props: RouteComponentProps) => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+       dispatch(startAuthStateListening())
+    }, [])
+
     return (
         <div className="app">
             {

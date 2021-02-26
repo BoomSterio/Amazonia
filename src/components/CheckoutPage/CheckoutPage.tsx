@@ -18,7 +18,7 @@ const CheckoutPage: React.FC = () => {
                 <Cart/>
             </div>
             <div className={styles.right}>
-                <Subtotal total={total} count={itemsInCart}/>
+                {itemsInCart ? <Subtotal total={total} count={itemsInCart}/> : null}
             </div>
         </div>
     )

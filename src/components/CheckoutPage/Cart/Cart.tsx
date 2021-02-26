@@ -3,6 +3,7 @@ import styles from './Cart.module.css'
 import CartProduct from './CartProduct/CartProduct'
 import {useSelector} from 'react-redux'
 import {getCart} from '../../../redux/selectors/checkout-selectors'
+import Empty from './Empty/Empty'
 
 const Cart: React.FC = () => {
     const cart = useSelector(getCart)
@@ -21,9 +22,16 @@ const Cart: React.FC = () => {
 
     return (
         <div className={styles.cart}>
-            <h2 className={styles.title}>Shopping Cart</h2>
-            <p>Price</p>
-            {cartItems}
+            {cart.length
+                ?
+                <>
+                    <h2 className={styles.title}>Shopping Cart</h2>
+                    <p>Price</p>
+                    {cartItems}
+                </>
+                :
+                <Empty/>
+            }
         </div>
     )
 }
