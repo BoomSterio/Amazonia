@@ -1,6 +1,6 @@
 import React, {FormEvent, useEffect, useState} from 'react'
 import styles from './PaymentPage.module.css'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {getAuthUser} from '../../redux/selectors/auth-selectors'
 import {getCart, getCartTotal} from '../../redux/selectors/checkout-selectors'
 import {Redirect, useHistory} from 'react-router'
@@ -10,9 +10,11 @@ import {StripeCardElement, StripeCardElementChangeEvent} from '@stripe/stripe-js
 import CurrencyPrice from '../common/CurrencyPrice/CurrencyPrice'
 import {CircularProgress} from '@material-ui/core'
 import {instance} from '../../api/stripe-api'
+import {checkoutActions} from '../../redux/actions/checkout-actions'
 
 const PaymentPage: React.FC = () => {
     const history = useHistory()
+    const dispatch = useDispatch()
 
     const stripe = useStripe()
     const elements = useElements()
@@ -69,6 +71,8 @@ const PaymentPage: React.FC = () => {
             setSucceeded(true)
             setError('')
             setProcessing(false)
+
+            dispatch(checkoutActions.emptyCart())
 
             history.replace('/orders')
         })

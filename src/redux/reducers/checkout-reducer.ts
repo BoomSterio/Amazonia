@@ -29,6 +29,11 @@ const checkoutReducer = (state = initialState, action: CheckoutActionsType): Ini
                 ...state,
                 cart: [...state.cart.filter(p => p.id !== action.id)]
             }
+        case 'cart/EMPTY_CART':
+            return {
+                ...state,
+                cart: []
+            }
         case 'cart/CHANGE_PRODUCT_QUANTITY':
             return {
                 ...state,
