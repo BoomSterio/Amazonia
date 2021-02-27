@@ -17,13 +17,18 @@
     width: 150px;
 }
 
-.items, .details, .address {
+.items, .address {
     width: 100%;
 }
 
 @media (max-width: 480px) {
+    .payment {
+        padding: 0;
+    }
     .section {
         flex-direction: column;
         align-items: center;
+        padding: 5px;
+        margin: 0;
     }
 }

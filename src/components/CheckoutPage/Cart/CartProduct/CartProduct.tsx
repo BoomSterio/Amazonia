@@ -10,11 +10,14 @@ import {checkoutActions} from '../../../../redux/actions/checkout-actions'
 
 type Props = {
     animationDuration?: number,
-    direction?: 'left' | 'right' | 'up' | 'down'
+    direction?: 'left' | 'right' | 'up' | 'down',
+    editable?: boolean
 }
 
 const CartProduct: React.FC<CartProductType & Props> = (props) => {
-    const {id, title, image, price, rating, quantity = 1, animationDuration = 300, direction= 'right'} = props
+    const {id, title, image, price, rating, quantity = 1,
+        animationDuration = 300, direction = 'right', editable = true} = props
+
     const [remove, setRemove] = useState(false)
 
     const dispatch = useDispatch()
@@ -39,9 +42,12 @@ const CartProduct: React.FC<CartProductType & Props> = (props) => {
                     <Rating size={'small'} defaultValue={rating} precision={0.5} readOnly/>
                     <div className={styles.options}>
                         <Input className={styles.quantity} onChange={changeQuantity} inputProps={{min: 1, max: 100}}
-                               type={'number'} value={quantity}/>
-                        <span className={styles.option} onClick={handleDelete}>Delete</span>
-                        <span className={styles.option}>Save for later</span>
+                               type={'number'} value={quantity} disabled={!editable}/>
+                        {editable &&
+                        <>
+                            <span className={styles.option} onClick={handleDelete}>Delete</span>
+                            <span className={styles.option}>Save for later</span>
+                        </>}
                     </div>
                 </div>
                 <CurrencyFormat

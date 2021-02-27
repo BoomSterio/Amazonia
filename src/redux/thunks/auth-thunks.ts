@@ -1,6 +1,6 @@
 import {BaseThunkType} from '../redux-store'
 import {authActions, AuthActionsType} from '../actions/auth-actions'
-import {auth} from '../../firebase'
+import {auth} from '../../api/firebase'
 
 export const startAuthStateListening = (): ThunkType => async (dispatch: any) => {
     auth.onAuthStateChanged(authUser => {       //event listener

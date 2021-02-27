@@ -1,0 +1,44 @@
+.order {
+    margin-bottom: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.products {
+    border-bottom: 1px solid lightgray;
+}
+
+.price {
+    padding: 15px 0;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.info h4 {
+    width: 340px;
+}
+
+.date {
+    margin-left: 15px;
+}
+
+.id {
+    color: #007185;
+    word-break: break-word;
+}
+
+@media (max-width: 767px) {
+    .info {
+        flex-direction: column;
+    }
+    .info h4 {
+        width: auto;
+    }
+}

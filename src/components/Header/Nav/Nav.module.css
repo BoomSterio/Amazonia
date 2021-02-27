@@ -9,6 +9,9 @@
     flex-direction: column;
     margin-left: 6px;
     padding: 4px 9px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
     border: 1px solid transparent;
 }
 

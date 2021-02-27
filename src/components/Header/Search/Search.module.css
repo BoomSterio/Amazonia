@@ -51,6 +51,7 @@
     border-radius: 0 4px 4px 0;
     color: #5a4e3d;
     background-color: #febd69;
+    cursor: pointer;
 }
 
 .searchBtn:hover {

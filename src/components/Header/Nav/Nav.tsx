@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styles from './Nav.module.css'
 import {ArrowDropDown, MenuRounded, ShoppingCartOutlined} from '@material-ui/icons'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import {getCartCount} from '../../../redux/selectors/checkout-selectors'
 import {Backdrop, createStyles, makeStyles, Popover, Theme} from '@material-ui/core'
@@ -21,6 +21,7 @@ const Nav: React.FC = () => {
     const itemsInCart = useSelector(getCartCount)
     const isAuth = useSelector(getIsAuth)
     const user = useSelector(getAuthUser)
+
     const classes = useStyles()
 
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
@@ -59,10 +60,12 @@ const Nav: React.FC = () => {
                     <MenuDrop />
                 </Popover>
             </Backdrop>
-            <div className={styles.option}>
-                <span className={styles.optionLineOne}>Returns</span>
-                <span className={styles.optionLineTwo}>& Orders</span>
-            </div>
+            <Link to={'/orders'}>
+                <div className={styles.option}>
+                    <span className={styles.optionLineOne}>Returns</span>
+                    <span className={styles.optionLineTwo}>& Orders</span>
+                </div>
+            </Link>
             <div className={styles.menuBurger}>
                 <MenuRounded onClick={handleClick}/>
             </div>

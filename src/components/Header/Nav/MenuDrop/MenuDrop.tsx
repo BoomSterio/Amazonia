@@ -38,7 +38,7 @@ const MenuDrop = () => {
                 <div className={styles.optionsSecond}>
                     <h4>Your Account</h4>
                     <div className={styles.option}>Account</div>
-                    <div className={styles.option}>Orders</div>
+                    <div className={styles.option} onClick={() => history.push('/orders')}>Orders</div>
                     <div className={styles.option}>Recommendations</div>
                     {isAuth &&
                     <div className={styles.option} onClick={signOut}>Sign Out</div>}

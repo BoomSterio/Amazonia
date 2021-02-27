@@ -1,4 +1,4 @@
-import {auth} from '../firebase'
+import {auth} from './firebase'
 
 export const authAPI = {
     signInUser(email: string, password: string) {
