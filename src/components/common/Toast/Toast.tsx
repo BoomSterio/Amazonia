@@ -12,7 +12,7 @@ type Props = {
 export const createToast = (title: string, image: string, quantity: number) => {
     toast.configure()
     toast(<Toast title={title} image={image} quantity={quantity}/>, {
-        position: toast.POSITION.BOTTOM_RIGHT,
+        position: toast.POSITION.TOP_RIGHT,
         autoClose: 6000,
         hideProgressBar: false,
         closeOnClick: true,

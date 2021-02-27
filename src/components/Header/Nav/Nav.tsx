@@ -39,12 +39,13 @@ const Nav: React.FC = () => {
     return (
         <div className={styles.nav}>
             <div className={styles.option} id={'#menuDrop'} onClick={handleClick}>
-                <span className={styles.optionLineOne}>Hello, {isAuth ? (user.name ? user.name : user.email) : 'Sign In'}</span>
+                <span className={styles.optionLineOne}>Hello, {isAuth ? (user ? (user.name || user.email) : 'Guest') : 'Sign In'}</span>
                 <span className={styles.optionLineTwo}>Account & Lists<ArrowDropDown
                     className={styles.dropDownIcon}/></span>
             </div>
             <Backdrop className={classes.backdrop} open={open}>
                 <Popover
+                    style={{zIndex: 100000}}
                     id={id} open={open} anchorEl={anchorEl} onClose={handleClose} onClick={handleClose}
                     anchorOrigin={{
                         vertical: 'bottom',

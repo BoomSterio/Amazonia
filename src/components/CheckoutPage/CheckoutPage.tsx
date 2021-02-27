@@ -15,7 +15,7 @@ const CheckoutPage: React.FC = () => {
                 <img className={styles.ad}
                      src={'https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg'}
                      alt={'ad'}/>
-                <Cart/>
+                <Cart itemsCount={itemsInCart} total={total}/>
             </div>
             <div className={styles.right}>
                 {itemsInCart ? <Subtotal total={total} count={itemsInCart}/> : null}

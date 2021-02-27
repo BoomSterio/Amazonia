@@ -3,7 +3,6 @@
     flex: 1;
     align-items: center;
     margin: 0 18px;
-    padding: 3px;
 }
 
 .category {
@@ -36,8 +35,10 @@
 }
 
 .search:focus-within{
-    border: 3px solid #f19102;
-    border-radius: 7px;
+    -webkit-box-shadow: 0px 0px 2px 3px rgba(241, 145, 2, 1);
+    -moz-box-shadow: 0px 0px 2px 3px rgba(241, 145, 2, 1);
+    box-shadow: 0px 0px 2px 3px rgba(241, 145, 2, 1);
+    border-radius: 4px;
     padding: 0;
 }
 

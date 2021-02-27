@@ -12,7 +12,7 @@ const BackgroundCarousel: React.FC = () => {
             <CarouselProvider
                 isPlaying
                 infinite
-                interval={7000}
+                interval={5000}
                 naturalSlideWidth={100}
                 naturalSlideHeight={40}
                 totalSlides={4}

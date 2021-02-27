@@ -4,8 +4,14 @@ import CartProduct from './CartProduct/CartProduct'
 import {useSelector} from 'react-redux'
 import {getCart} from '../../../redux/selectors/checkout-selectors'
 import Empty from './Empty/Empty'
+import CurrencyPrice from '../../common/CurrencyPrice/CurrencyPrice'
 
-const Cart: React.FC = () => {
+type Props = {
+    itemsCount: number,
+    total: number
+}
+
+const Cart: React.FC<Props> = ({itemsCount, total}) => {
     const cart = useSelector(getCart)
 
     const cartItems = cart.map(item =>
@@ -28,6 +34,9 @@ const Cart: React.FC = () => {
                     <h2 className={styles.title}>Shopping Cart</h2>
                     <p>Price</p>
                     {cartItems}
+                    <div className={styles.total}>
+                        <CurrencyPrice  value={total} text={`Subtotal (${itemsCount} items): `}/>
+                    </div>
                 </>
                 :
                 <Empty/>

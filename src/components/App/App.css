@@ -1,3 +1,6 @@
+.Toastify__progress-bar--dark {
+    background: #f19102 !important;
+}
 
 @media (min-width: 481px) {
     .Toastify__toast-container {

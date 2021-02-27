@@ -15,3 +15,14 @@
     font-weight: 500;
     text-align: right;
 }
+
+.total {
+    border-top: 1px solid lightgray;
+    padding: 5px 0;
+    padding-bottom: 20px;
+    text-align: right;
+}
+
+.total p {
+    font-size: 18px;
+}

@@ -1,0 +1,29 @@
+.payment {
+    padding: 20px 26px;
+}
+
+.container {
+    background-color: white;
+}
+
+.section {
+    display: flex;
+    padding: 15px;
+    margin: 0 15px;
+    border-bottom: 1px solid lightgray;
+}
+
+.title {
+    width: 150px;
+}
+
+.items, .details, .address {
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .section {
+        flex-direction: column;
+        align-items: center;
+    }
+}

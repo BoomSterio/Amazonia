@@ -10,17 +10,19 @@
     min-width: 100px;
     z-index: 1;
     background-color: white;
+    transition: all .1s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.025) translateY(-5px);
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
 }
 
 .image {
     max-height: 200px;
-    width: 90%;
     object-fit: contain;
-    transition: all .1s;
-}
-
-.product:hover .image {
-    transform: scale(0.975) translateY(-5px);
 }
 
 .info {
@@ -93,6 +95,9 @@
         width: 90%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .image {
+        width: 90%;
     }
 }
 
