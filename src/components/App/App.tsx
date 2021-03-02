@@ -14,6 +14,7 @@ import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js'
 import OrdersPage from '../OrdersPage/OrdersPage'
 import {Helmet} from 'react-helmet'
+import Footer from '../Footer/Footer'
 
 const promise = loadStripe('pk_test_51IPDXrHdKa0qwLLpHqPY1OEV9mbMqBFcpIRn4YQSU0GL1oAh62Ih2kJm3DfqvO0gNV3kcpd5M0SgyRum3oIlaxi400iXlz8Hf1')
 
@@ -26,9 +27,7 @@ const App = withRouter((props: RouteComponentProps) => {
 
     return (
         <div className="app">
-            {
-                props.location.pathname !== '/login' && <Header/>
-            }
+            {props.location.pathname !== '/login' && <Header/>}
             <Switch>
                 <Route exact path={'/'}><HomePage/></Route>
                 <Route path={'/checkout'}><CheckoutPage/></Route>
@@ -37,6 +36,7 @@ const App = withRouter((props: RouteComponentProps) => {
                 <Route path={'/login'}><LoginPage/></Route>
                 <Redirect from={'*'} to={'/'}/>
             </Switch>
+            {props.location.pathname !== '/login' && <Footer/>}
         </div>
     )
 })
