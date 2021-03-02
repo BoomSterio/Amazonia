@@ -8,6 +8,7 @@ import {createToast} from '../Toast/Toast'
 import {default as CurrencyFormat} from 'react-currency-format'
 import {ProductType} from '../../../types/types'
 import {Input} from '@material-ui/core'
+import Button from '../Button/Button'
 
 const ProductCard: React.FC<ProductType> = ({id, title, image, price, rating}) => {
     const [quantity, setQuantity] = useState(1)
@@ -58,9 +59,9 @@ const ProductCard: React.FC<ProductType> = ({id, title, image, price, rating}) =
             <div className={styles.toCart}>
                 <small>Qty: </small>
                 <Input className={styles.quantity} onChange={changeQuality} inputProps={{min: 1, max: 100}} disableUnderline type={'number'} value={quantity}/>
-                <button className={styles.toCartBtn} onClick={addToBasket}>
+                <Button color={'primary'} style={{width: '130px', height: 'inherit'}} onClick={addToBasket}>
                     Add to cart
-                </button>
+                </Button>
             </div>
         </div>
     )

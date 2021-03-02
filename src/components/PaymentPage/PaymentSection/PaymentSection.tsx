@@ -9,10 +9,15 @@ import {useHistory} from 'react-router'
 import {useDispatch, useSelector} from 'react-redux'
 import {getCart, getCartTotal} from '../../../redux/selectors/checkout-selectors'
 import {instance} from '../../../api/stripe-api'
-import {db} from '../../../api/firebase'
-import {getAuthUser, getIsAuth} from '../../../redux/selectors/auth-selectors'
+import {getAuthUser} from '../../../redux/selectors/auth-selectors'
+import {DeliveryType} from '../../../types/types'
+import {dbAPI} from '../../../api/db-api'
 
-const PaymentSection: React.FC = () => {
+type Props = {
+    delivery: DeliveryType
+}
+
+const PaymentSection: React.FC<Props> = ({delivery}) => {
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -34,7 +39,7 @@ const PaymentSection: React.FC = () => {
             setProcessing(true)
             const response = await instance({
                 method: 'post',
-                url: `/payments/create?total=${(total) * 100}`
+                url: `/payments/create?total=${Math.trunc((total) * 100)}`
             })
             setClientSecret(response.data.clientSecret)
             setProcessing(false)
@@ -44,8 +49,7 @@ const PaymentSection: React.FC = () => {
             getClientSecret()
         }
     }, [cart])
-
-    console.log('SECRET => ', clientSecret)
+    //console.log('SECRET => ', clientSecret)
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -57,16 +61,7 @@ const PaymentSection: React.FC = () => {
                 card: elements?.getElement(CardElement)
             }
         }).then(({paymentIntent}) => {
-            db
-                .collection('users')
-                .doc(user.id as string)
-                .collection('orders')
-                .doc(paymentIntent?.id)
-                .set({
-                    cart: cart,
-                    amount: paymentIntent?.amount,
-                    created: paymentIntent?.created
-                })
+            dbAPI.submitOrder(user.id, paymentIntent, cart, delivery)
 
             setSucceeded(true)
             setError('')
@@ -95,7 +90,7 @@ const PaymentSection: React.FC = () => {
                         <CurrencyPrice value={total} text={'Order total: '}/>
                     </div>
                     <button className={styles.button} disabled={processing || disabled || succeeded}>
-                        {processing ? <CircularProgress size={15}/> : 'Buy Now'}
+                        {processing ? <><CircularProgress style={{marginRight: '5px'}} size={12}/>Loading...</> : 'Buy Now'}
                     </button>
                     {error && <div>{error}</div>}
                 </form>

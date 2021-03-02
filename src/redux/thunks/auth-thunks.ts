@@ -17,7 +17,7 @@ export const startAuthStateListening = (): ThunkType => async (dispatch: any) =>
             }, true))
         } else {
             dispatch(authActions.setUserAuth({
-                id: null,
+                id: '',
                 email: null,
                 emailVerified: null,
                 name: null,

@@ -62,24 +62,6 @@
     height: 24px !important;
 }
 
-.toCartBtn {
-    width: 130px;
-    height: inherit;
-    background: linear-gradient(rgb(254, 230, 176), rgb(238, 186, 55)) rgb(254, 230, 176);
-    border: 1px solid;
-    border-color: #a88734 #9c7e31 #846a29;
-    border-radius: 4px;
-    color: #111;
-    inset: 0;
-    cursor: pointer;
-    outline: none;
-    font-size: inherit;
-}
-
-.toCartBtn:hover {
-    background: rgb(238, 186, 55);
-}
-
 .quantity {
     width: 47px;
     height: inherit;

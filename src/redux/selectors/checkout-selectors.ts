@@ -13,6 +13,5 @@ export const getCartCount = (state: AppStateType) => {
 }
 
 export const getCartTotal = (state: AppStateType) => {
-
-    return Number(state.checkout.cart.reduce((amount, item) => amount + item.price * item.quantity, 0).toFixed(2))
+    return state.checkout.cart.reduce((amount, item) => amount + item.price * item.quantity, 0)
 }

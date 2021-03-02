@@ -13,6 +13,7 @@ import PaymentPage from '../PaymentPage/PaymentPage'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js'
 import OrdersPage from '../OrdersPage/OrdersPage'
+import {Helmet} from 'react-helmet'
 
 const promise = loadStripe('pk_test_51IPDXrHdKa0qwLLpHqPY1OEV9mbMqBFcpIRn4YQSU0GL1oAh62Ih2kJm3DfqvO0gNV3kcpd5M0SgyRum3oIlaxi400iXlz8Hf1')
 

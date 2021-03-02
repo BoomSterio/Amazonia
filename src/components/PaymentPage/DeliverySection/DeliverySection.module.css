@@ -1,0 +1,46 @@
+.address {
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+}
+
+.title {
+    width: 150px;
+}
+
+.formRow {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.formControl{
+    max-width: 195px;
+}
+
+.changeBtn {
+    color: #007185;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.changeBtn:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 676px) {
+    .address {
+        max-width: 300px;
+    }
+    .formRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .formControl {
+        margin-bottom: 12px;
+    }
+    .phoneInput {
+        max-width: 195px;
+    }
+}
+

@@ -11,10 +11,24 @@ export interface CartProductType extends ProductType {
 }
 
 export type UserType = {
-    id: string | null,
+    id: string,
     name: string | null,
     phoneNumber: string | null,
     photoURL: string | null,
     email: string | null,
     emailVerified: boolean | null
 }
+
+export type DeliveryType = {
+    fullName: string,
+    phone: string,
+    country: string,
+    city: string,
+    addressLine: string,
+    index: number,
+    email: string
+    details: string | null,
+    method: 'EMS Economy' | 'UPS Express' | 'FedEx' | 'DHL International'
+}
+
+export type DeliveryStatusType = 'In Processing' | 'Delivering' | 'Completed'

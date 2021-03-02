@@ -3,6 +3,7 @@ import styles from './Subtotal.module.css'
 
 import {useHistory} from 'react-router'
 import CurrencyPrice from '../../common/CurrencyPrice/CurrencyPrice'
+import Button from '../../common/Button/Button'
 
 type Props = {
     total: number,
@@ -19,7 +20,7 @@ const Subtotal: React.FC<Props> = ({total = 0, count}) => {
                 <input type={'checkbox'}/>
                 This order contains a gift
             </small>
-            <button onClick={() => history.push('/payment')}>Proceed to checkout</button>
+            <Button style={{width: '258px', marginTop: '20px'}} onClick={() => history.push('/payment')}>Proceed to checkout</Button>
         </div>
     )
 }

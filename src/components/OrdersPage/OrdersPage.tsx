@@ -4,6 +4,7 @@ import {db} from '../../api/firebase'
 import {useSelector} from 'react-redux'
 import {getAuthUser} from '../../redux/selectors/auth-selectors'
 import OrderItem from './OrderItem/OrderItem'
+import {Helmet} from 'react-helmet'
 
 const OrdersPage: React.FC = () => {
     const [orders, setOrders] = useState([])
@@ -34,6 +35,7 @@ const OrdersPage: React.FC = () => {
 
     return (
         <div className={styles.orders}>
+            <Helmet><title>Your Orders</title></Helmet>
             <h2>Your Orders</h2>
             <div>
                 {ordersItems}

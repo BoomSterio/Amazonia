@@ -22,7 +22,10 @@ const CartProduct: React.FC<CartProductType & Props> = (props) => {
 
     const dispatch = useDispatch()
 
-    const changeQuantity = (e: ChangeEvent<HTMLInputElement>) => {
+    const changeQuantity = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        if(Number(e.target.value) === 0)
+            handleDelete()
+
         if (Number(e.target.value) <= 100)
             dispatch(checkoutActions.changeProductQuantity(id, Number(e.target.value)))
     }
@@ -41,8 +44,8 @@ const CartProduct: React.FC<CartProductType & Props> = (props) => {
                     <span className={styles.availability}>In Stock</span>
                     <Rating size={'small'} defaultValue={rating} precision={0.5} readOnly/>
                     <div className={styles.options}>
-                        <Input className={styles.quantity} onChange={changeQuantity} inputProps={{min: 1, max: 100}}
-                               type={'number'} value={quantity} disabled={!editable}/>
+                        <Input className={styles.quantity} onBlur={changeQuantity} inputProps={{min: 0, max: 100}}
+                               type={'number'} defaultValue={quantity} disabled={!editable}/>
                         {editable &&
                         <>
                             <span className={styles.option} onClick={handleDelete}>Delete</span>

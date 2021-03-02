@@ -57,25 +57,6 @@
     box-shadow: 0px 0px 4px 3px rgba(241, 145, 2, 0.58);
 }
 
-.submit {
-    align-self: center;
-    width: 100%;
-    height: 29px;
-    background: linear-gradient(rgb(254, 230, 176), rgb(238, 186, 55)) rgb(254, 230, 176);
-    border: 1px solid;
-    border-color: #a88734 #9c7e31 #846a29;
-    border-radius: 4px;
-    margin-top: 15px;
-    color: #111;
-    inset: 0;
-    cursor: pointer;
-    outline: none;
-}
-
-.submit:hover {
-    background: rgb(238, 186, 55);
-}
-
 .window p {
     font-size: 12px;
     margin-top: 15px;
@@ -98,15 +79,4 @@
     border: none;
     height: 1px;
     background: lightgray;
-}
-
-.signupBtn {
-    height: 29px;
-    width: 100%;
-    border: 1px solid darkgray;
-    border-radius: 3px;
-    background: linear-gradient(0deg, rgba(222,222,222,1) 0%, rgba(255,255,255,1) 100%);;
-}
-.signupBtn:hover {
-    background: rgba(222,222,222,1);
 }

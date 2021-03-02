@@ -1,20 +1,4 @@
-.title {
-    width: 150px;
-}
-
-.details {
-    width: 100%;
-}
-
-.details form {
-    width: 320px;
-}
-
-.price {
-    margin-top: 15px;
-}
-
-.button {
+.primary {
     align-self: center;
     width: 100%;
     height: 29px;
@@ -22,19 +6,23 @@
     border: 1px solid;
     border-color: #a88734 #9c7e31 #846a29;
     border-radius: 4px;
-    margin-top: 20px;
     color: #111;
     inset: 0;
     cursor: pointer;
     outline: none;
 }
 
-.button:hover {
+.primary:hover {
     background: rgb(238, 186, 55);
 }
 
-@media (max-width: 480px) {
-    .details form {
-        width: 300px;
-    }
+.secondary {
+    height: 29px;
+    width: 100%;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    background: linear-gradient(0deg, rgba(222,222,222,1) 0%, rgba(255,255,255,1) 100%);
+}
+.secondary:hover {
+    background: rgba(222,222,222,1);
 }

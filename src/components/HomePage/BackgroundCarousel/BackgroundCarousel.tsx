@@ -1,10 +1,12 @@
 import React from 'react'
-import {CarouselProvider, Image, Slide, Slider} from 'pure-react-carousel'
+import {ButtonBack, ButtonNext, CarouselProvider, DotGroup, Image, Slide, Slider} from 'pure-react-carousel'
 import styles from './BackgroundCarousel.module.css'
 import toysBG from '../../../assets/images/Fuji_TallHero_Toys_en_US_1x._CB431858161_.jpg'
 import computersBG from '../../../assets/images/Fuji_TallHero_Computers_1x._CB432469755_.jpg'
 import mBG from '../../../assets/images/Fuji_TallHero_45M_v2_1x._CB432458380_.jpg'
 import homeBG from '../../../assets/images/Fuji_TallHero_Home_v2_en_US_1x._CB429090084_.jpg'
+import {ArrowLeftRounded} from '@material-ui/icons'
+import 'pure-react-carousel/dist/react-carousel.es.css'
 
 const BackgroundCarousel: React.FC = () => {
     return (

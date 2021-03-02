@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './PaymentPage.module.css'
 import {useSelector} from 'react-redux'
 import {getAuthUser, getIsAuth} from '../../redux/selectors/auth-selectors'
@@ -6,13 +6,33 @@ import {getCart} from '../../redux/selectors/checkout-selectors'
 import {useHistory} from 'react-router'
 import CartProduct from '../CheckoutPage/Cart/CartProduct/CartProduct'
 import PaymentSection from './PaymentSection/PaymentSection'
+import DeliverySection from './DeliverySection/DeliverySection'
+import {DeliveryType} from '../../types/types'
+import {Helmet} from 'react-helmet'
 
 const PaymentPage: React.FC = () => {
     const history = useHistory()
 
-    const user = useSelector(getAuthUser)
     const cart = useSelector(getCart)
     const isAuth = useSelector(getIsAuth)
+    const user = useSelector(getAuthUser)
+
+    const [delivery, setDelivery] = useState({
+        country: '',
+        city: '',
+        addressLine: '',
+        fullName: user.name,
+        phone: user.phoneNumber ? user.phoneNumber : '',
+        email: user.email,
+        index: 0,
+        details: '',
+        method: 'EMS Economy'
+    } as DeliveryType)
+
+    const handleDeliveryChange = (prop: keyof DeliveryType) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string) => {
+        if(e)
+            setDelivery({...delivery, [prop]: typeof(e) !== 'string' ? e.target.value : String(e)})
+    }
 
     const cartItems = cart.map(item =>
         <CartProduct
@@ -35,17 +55,10 @@ const PaymentPage: React.FC = () => {
 
     return (
         <div className={styles.payment}>
+            <Helmet><title>Delivery & Payment</title></Helmet>
             <div className={styles.container}>
                 <div className={styles.section}>
-                    <div className={styles.title}>
-                        <h4>Delivery Address</h4>
-                    </div>
-                    <div className={styles.address}>
-                        <p>{user.name && user.name}</p>
-                        <p>{user.email && user.email}</p>
-                        <p>Yaroslava Horobrogo 123</p>
-                        <p>San Jose, California</p>
-                    </div>
+                    <DeliverySection delivery={delivery} handleChange={handleDeliveryChange}/>
                 </div>
                 <div className={styles.section}>
                     <div className={styles.title}>
@@ -56,7 +69,7 @@ const PaymentPage: React.FC = () => {
                     </div>
                 </div>
                 <div className={styles.section}>
-                    <PaymentSection/>
+                    <PaymentSection delivery={delivery}/>
                 </div>
             </div>
         </div>

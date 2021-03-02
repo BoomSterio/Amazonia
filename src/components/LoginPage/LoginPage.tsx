@@ -1,12 +1,14 @@
 import React from 'react'
 import styles from './LoginPage.module.css'
-import {Link, Redirect, useHistory} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Snackbar} from '@material-ui/core'
 import {Visibility, VisibilityOff} from '@material-ui/icons'
 import {Alert} from '@material-ui/lab'
 import {authAPI} from '../../api/auth-api'
 import {useSelector} from 'react-redux'
 import {getIsAuth} from '../../redux/selectors/auth-selectors'
+import Button from '../common/Button/Button'
+import {Helmet} from 'react-helmet'
 
 interface State {
     email: string;
@@ -58,6 +60,7 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className={styles.login}>
+            <Helmet><title>Sign In</title></Helmet>
             <div className={styles.container}>
                 <Link to={'/'}>
                     <img className={styles.logo} src={'http://pngimg.com/uploads/amazon/amazon_PNG6.png'} alt={'logo'}/>
@@ -101,7 +104,7 @@ const LoginPage: React.FC = () => {
                             }
                         />
                     </FormControl>
-                    <button className={styles.submit} onClick={submitSignIn}>Sign In</button>
+                    <Button style={{marginTop: '15px'}} onClick={submitSignIn}>Sign In</Button>
                     <Snackbar open={values.error !== null} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                               autoHideDuration={6000} onClose={clearError}>
                         <Alert onClose={clearError} severity="error">
@@ -117,7 +120,7 @@ const LoginPage: React.FC = () => {
                     <span>New to Amazon?</span>
                     <hr/>
                 </div>
-                <button className={styles.signupBtn} onClick={submitRegister}>Create your Amazon account</button>
+                <Button color={'secondary'} onClick={submitRegister}>Create your Amazon account</Button>
             </div>
             <hr className={styles.pageEnd}/>
         </div>

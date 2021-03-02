@@ -7,11 +7,9 @@
     flex-direction: column;
 }
 
-.products {
-    border-bottom: 1px solid lightgray;
-}
-
-.price {
+.additional {
+    display: flex;
+    justify-content: space-between;
     padding: 15px 0;
 }
 
@@ -34,11 +32,19 @@
     word-break: break-word;
 }
 
+.status {
+    margin-left: auto;
+    font-size: 14px;
+}
+
 @media (max-width: 767px) {
     .info {
         flex-direction: column;
     }
     .info h4 {
         width: auto;
+    }
+    .status {
+        margin: 0;
     }
 }
