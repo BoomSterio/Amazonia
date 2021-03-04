@@ -21,18 +21,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
     <property name="ts.external.directory.path" value="D:\Education\Web\react\projects\amazon-clone\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Education\Web\react\projects\amazon-clone\src\assets\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Education\Web\react\projects\amazon-clone\src\assets\images" />
       <recent name="D:\Education\Web\react\projects\amazon-clone\public" />
       <recent name="D:\Education\Web\react\projects\amazon-clone\functions" />
       <recent name="D:\Education\Web\react\projects\amazon-clone\functions\src" />
       <recent name="D:\Education\Web\react\projects\amazon-clone\src\api" />
-      <recent name="D:\Education\Web\react\projects\amazon-clone\src\components\CheckoutPage\Cart" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -44,7 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1613850705112</updated>
       <workItem from="1613850706288" duration="163692000" />
-      <workItem from="1614554727571" duration="52920000" />
+      <workItem from="1614554727571" duration="62716000" />
     </task>
     <servers />
   </component>
@@ -52,10 +56,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613852207843">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1614895746892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613852207843" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614895746892" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1614558283817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

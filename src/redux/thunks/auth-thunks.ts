@@ -1,6 +1,7 @@
 import {BaseThunkType} from '../redux-store'
 import {authActions, AuthActionsType} from '../actions/auth-actions'
 import {auth} from '../../api/firebase'
+import {appActions} from '../actions/app-actions'
 
 export const startAuthStateListening = (): ThunkType => async (dispatch: any) => {
     auth.onAuthStateChanged(authUser => {       //event listener
@@ -15,6 +16,7 @@ export const startAuthStateListening = (): ThunkType => async (dispatch: any) =>
                 phoneNumber: authUser.phoneNumber,
                 photoURL: authUser.photoURL,
             }, true))
+            dispatch(appActions.initializedSuccess())
         } else {
             dispatch(authActions.setUserAuth({
                 id: '',
@@ -24,6 +26,7 @@ export const startAuthStateListening = (): ThunkType => async (dispatch: any) =>
                 phoneNumber: null,
                 photoURL: null,
             }, false))
+            dispatch(appActions.initializedSuccess())
         }
     })
 }

@@ -4,27 +4,32 @@ import Header from '../Header/Header'
 import HomePage from '../HomePage/HomePage'
 import {BrowserRouter, Redirect, Route, RouteComponentProps, Switch, withRouter} from 'react-router-dom'
 import CheckoutPage from '../CheckoutPage/CheckoutPage'
-import {Provider, useDispatch} from 'react-redux'
-import store from '../../redux/redux-store'
+import {Provider, useDispatch, useSelector} from 'react-redux'
+import store, {AppStateType} from '../../redux/redux-store'
 import 'react-toastify/dist/ReactToastify.css'
 import LoginPage from '../LoginPage/LoginPage'
-import {startAuthStateListening} from '../../redux/thunks/auth-thunks'
 import PaymentPage from '../PaymentPage/PaymentPage'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js'
-import OrdersPage from '../OrdersPage/OrdersPage'
-import {Helmet} from 'react-helmet'
 import Footer from '../Footer/Footer'
-import AdminPage from '../AdminPage/AdminPage'
+import {initializeApp} from '../../redux/thunks/app-thunks'
+import Preloader from '../common/Preloader/Preloader'
+
+const AdminPage = React.lazy(() => import('../AdminPage/AdminPage'))
+const OrdersPage = React.lazy(() => import('../OrdersPage/OrdersPage'))
 
 const promise = loadStripe('pk_test_51IPDXrHdKa0qwLLpHqPY1OEV9mbMqBFcpIRn4YQSU0GL1oAh62Ih2kJm3DfqvO0gNV3kcpd5M0SgyRum3oIlaxi400iXlz8Hf1')
 
 const App = withRouter((props: RouteComponentProps) => {
+    const initialized = useSelector((state: AppStateType) => state.app.initialized)
     const dispatch = useDispatch()
 
     useEffect(() => {
-       dispatch(startAuthStateListening())
+       dispatch(initializeApp())
     }, [])
+
+    if(!initialized)
+        return <Preloader/>
 
     return (
         <div className="app">

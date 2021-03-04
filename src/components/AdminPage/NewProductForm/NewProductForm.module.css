@@ -1,4 +1,51 @@
 .form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     margin-bottom: 20px;
+
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+
+.imageForms {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.formControl {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.imageInput {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+}
+
+.imgPreview {
+    margin: 0 5px;
+    width: 75px;
+    height: 40px;
+    object-fit: contain;
+    border: 4px double rgba(33,110,191,0.69);
+    padding: 1px;
+}
+
+.description {
+    width: 100%;
+}
+
+.input {
+    margin-bottom: 10px;
 }
