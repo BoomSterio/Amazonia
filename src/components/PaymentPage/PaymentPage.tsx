@@ -7,7 +7,7 @@ import {useHistory} from 'react-router'
 import CartProduct from '../CheckoutPage/Cart/CartProduct/CartProduct'
 import PaymentSection from './PaymentSection/PaymentSection'
 import DeliverySection from './DeliverySection/DeliverySection'
-import {DeliveryType} from '../../types/types'
+import {DeliveryMethodType, DeliveryType} from '../../types/types'
 import {Helmet} from 'react-helmet'
 
 const PaymentPage: React.FC = () => {
@@ -26,12 +26,14 @@ const PaymentPage: React.FC = () => {
         email: user.email,
         index: 0,
         details: '',
-        method: 'EMS Economy'
+        method: 'EMS Economy',
+        isValid: false
     } as DeliveryType)
 
-    const handleDeliveryChange = (prop: keyof DeliveryType) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string) => {
+    const handleDeliveryChange = (prop: keyof DeliveryType) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+        | DeliveryMethodType| string | boolean) => {
         if(e)
-            setDelivery({...delivery, [prop]: typeof(e) !== 'string' ? e.target.value : String(e)})
+            setDelivery({...delivery, [prop]: typeof(e) !== 'string' ? typeof(e) !=='boolean' ? e.target.value : Boolean(e) : String(e)})
     }
 
     const cartItems = cart.map(item =>

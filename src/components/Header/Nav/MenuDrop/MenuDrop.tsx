@@ -2,13 +2,14 @@ import React from 'react'
 import styles from './MenuDrop.module.css'
 import {Link, useHistory} from 'react-router-dom'
 import {useSelector} from 'react-redux'
-import {getIsAuth} from '../../../../redux/selectors/auth-selectors'
+import {getAuthUser, getIsAuth} from '../../../../redux/selectors/auth-selectors'
 import {authAPI} from '../../../../api/auth-api'
 
 const MenuDrop = () => {
     const history = useHistory()
 
     const isAuth = useSelector(getIsAuth)
+    const user = useSelector(getAuthUser)
 
     const signOut = () => {
         authAPI.signOut()
@@ -37,6 +38,8 @@ const MenuDrop = () => {
                 </div>
                 <div className={styles.optionsSecond}>
                     <h4>Your Account</h4>
+                    {user.email === 'admin@gmail.com' &&
+                    <div className={styles.option} onClick={() => history.push('/admin')} style={{color: 'red'}}>Admin page</div>}
                     <div className={styles.option}>Account</div>
                     <div className={styles.option} onClick={() => history.push('/orders')}>Orders</div>
                     <div className={styles.option}>Recommendations</div>

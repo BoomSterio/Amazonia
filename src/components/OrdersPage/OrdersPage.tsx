@@ -31,7 +31,7 @@ const OrdersPage: React.FC = () => {
 
     }, [user])
 
-    const ordersItems = orders.map(order => <OrderItem order={order}/>)
+    const ordersItems = orders.map((order, i) => <OrderItem key={i} order={order}/>)
 
     return (
         <div className={styles.orders}>

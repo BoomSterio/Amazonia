@@ -45,7 +45,7 @@ const OrderItem: React.FC<Props> = ({order}) => {
                         <h4>Order #<span className={styles.id}>{order.id}</span></h4>
                         <p className={styles.date}>{moment.unix(order.data.created).format('MMMM Do YYYY, h:mma')}</p>
                         <span className={styles.status} style={{color: `${order.data.status === 'In Processing' ? 'red' : 
-                                order.data.status === 'Delivering' ? 'yellow' : 'green'}`}}>{order.data.status}</span>
+                                order.data.status === 'Delivering' ? 'orange' : 'green'}`}}>{order.data.status}</span>
                     </div>
                 </AccordionSummary>
                 <AccordionDetails className={styles.details}>
@@ -56,6 +56,7 @@ const OrderItem: React.FC<Props> = ({order}) => {
                         <div>
                             <p>{order.data.delivery.fullName} {order.data.delivery.phone}</p>
                             <p>{order.data.delivery.country}, {order.data.delivery.city}. {order.data.delivery.addressLine}</p>
+                            <p>{order.data.delivery.method}</p>
                         </div>
                         <CurrencyPrice value={order.data.amount / 100} text={'Order total: '}/>
                     </div>

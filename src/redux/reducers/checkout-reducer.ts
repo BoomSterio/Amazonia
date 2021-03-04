@@ -1,8 +1,8 @@
-import {CartProductType} from '../../types/types'
+import {CartProductType, DeliveryType} from '../../types/types'
 import {CheckoutActionsType} from '../actions/checkout-actions'
 
 let initialState = {
-    cart: [] as CartProductType[]
+    cart: [] as CartProductType[],
 }
 export type InitialStateType = typeof initialState;
 

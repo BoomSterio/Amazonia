@@ -2,7 +2,7 @@ import React, {FormEvent, useEffect, useState} from 'react'
 import styles from './PaymentSection.module.css'
 import {CardElement, useElements, useStripe} from '@stripe/react-stripe-js'
 import CurrencyPrice from '../../common/CurrencyPrice/CurrencyPrice'
-import {CircularProgress} from '@material-ui/core'
+import {CircularProgress, Snackbar} from '@material-ui/core'
 import {checkoutActions} from '../../../redux/actions/checkout-actions'
 import {StripeCardElementChangeEvent} from "@stripe/stripe-js"
 import {useHistory} from 'react-router'
@@ -12,9 +12,10 @@ import {instance} from '../../../api/stripe-api'
 import {getAuthUser} from '../../../redux/selectors/auth-selectors'
 import {DeliveryType} from '../../../types/types'
 import {dbAPI} from '../../../api/db-api'
+import {Alert} from '@material-ui/lab'
 
 type Props = {
-    delivery: DeliveryType
+    delivery: DeliveryType,
 }
 
 const PaymentSection: React.FC<Props> = ({delivery}) => {
@@ -25,7 +26,7 @@ const PaymentSection: React.FC<Props> = ({delivery}) => {
     const elements = useElements()
 
     const [clientSecret, setClientSecret] = useState(null)
-    const [error, setError] = useState('')
+    const [error, setError] = useState(null as string | null)
     const [disabled, setDisabled] = useState(false)
     const [processing, setProcessing] = useState(false)
     const [succeeded, setSucceeded] = useState(false)
@@ -53,24 +54,28 @@ const PaymentSection: React.FC<Props> = ({delivery}) => {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setProcessing(true)
 
-        // @ts-ignore
-        const payload = await stripe?.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: elements?.getElement(CardElement)
-            }
-        }).then(({paymentIntent}) => {
-            dbAPI.submitOrder(user.id, paymentIntent, cart, delivery)
+        if(delivery.isValid && !error) {
+            setProcessing(true)
+            // @ts-ignore
+            const payload = await stripe?.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: elements?.getElement(CardElement)
+                }
+            }).then(({paymentIntent}) => {
+                dbAPI.submitOrder(user.id, paymentIntent, cart, delivery)
 
-            setSucceeded(true)
-            setError('')
-            setProcessing(false)
+                setSucceeded(true)
+                setError(null)
+                setProcessing(false)
 
-            dispatch(checkoutActions.emptyCart())
+                dispatch(checkoutActions.emptyCart())
 
-            history.replace('/orders')
-        })
+                history.replace('/orders')
+            }).catch((error) => setError(error.message))
+        } else {
+            setError('Delivery address is not valid or was not saved')
+        }
     }
 
     const handleChange = (e: StripeCardElementChangeEvent) => {
@@ -92,9 +97,14 @@ const PaymentSection: React.FC<Props> = ({delivery}) => {
                     <button className={styles.button} disabled={processing || disabled || succeeded}>
                         {processing ? <><CircularProgress style={{marginRight: '5px'}} size={12}/>Loading...</> : 'Buy Now'}
                     </button>
-                    {error && <div>{error}</div>}
                 </form>
             </div>
+            <Snackbar open={error !== null} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                      autoHideDuration={5000} onClose={() => setError(null)}>
+                <Alert onClose={() => setError(null)} severity="error">
+                    {error}
+                </Alert>
+            </Snackbar>
         </>
     )
 }

@@ -87,34 +87,33 @@ const Footer: React.FC = () => {
                 </div>
                 <div className={styles.container}>
                     <div className={styles.navItem}>
-                        <h4>Amazon Music</h4>
-                        <p>Stream millions
-                            of songs</p>
+                        <h4>Sell on Amazon</h4>
+                        <p>Start a Selling Account</p>
                     </div>
                     <div className={styles.navItem}>
-                        <h4>Amazon Advertising</h4>
-                        <p>Find, attract, and
-                            engage customers</p>
+                        <h4>Amazon Business</h4>
+                        <p>Everything For
+                            Your Business</p>
                     </div>
                     <div className={styles.navItem}>
-                        <h4>6pm</h4>
-                        <p>Score deals
-                            on fashion brands</p>
+                        <h4>AmazonGlobal</h4>
+                        <p>Ship Orders
+                            Internationally</p>
                     </div>
                     <div className={styles.navItem}>
-                        <h4>AbeBooks</h4>
-                        <p>Books, art
-                            & collectibles</p>
+                        <h4>Home Services</h4>
+                        <p>Experienced Pros
+                            Happiness Guarantee</p>
                     </div>
                     <div className={styles.navItem}>
-                        <h4>ACX</h4>
-                        <p>Audiobook Publishing
-                            Made Easy</p>
+                        <h4>Amazon Web Services</h4>
+                        <p>Scalable Cloud
+                            Computing Services</p>
                     </div>
                     <div className={styles.navItem}>
-                        <h4>Alexa</h4>
-                        <p>Actionable Analytics
-                            for the Web</p>
+                        <h4>Audible</h4>
+                        <p>Listen to Books & Original
+                            Audio Performances</p>
                     </div>
                 </div>
                 <div className={styles.conditions}>

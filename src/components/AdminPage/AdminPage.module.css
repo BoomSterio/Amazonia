@@ -1,0 +1,12 @@
+.admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding:  30px 25px;
+    background-color: white;
+}
+
+.container {
+    width: 100%;
+}

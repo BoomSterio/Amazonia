@@ -11,8 +11,9 @@
     padding: 4px 9px;
     cursor: pointer;
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
     border: 1px solid transparent;
+    transition: all .1s;
 }
 
 .option:hover {

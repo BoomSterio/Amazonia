@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
 import styles from './DeliverySection.module.css'
-import {DeliveryType} from '../../../types/types'
+import {DeliveryMethodType, DeliveryType} from '../../../types/types'
 import Button from '../../common/Button/Button'
-import {FormControl, Input, InputLabel} from '@material-ui/core'
+import {FormControl, Input, InputLabel, NativeSelect} from '@material-ui/core'
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 
 type Props = {
     delivery: DeliveryType,
-    handleChange: (prop: keyof DeliveryType) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string) => void
+    handleChange: (prop: keyof DeliveryType) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+        | DeliveryMethodType | string | boolean) => void
 }
 
 const DeliverySection: React.FC<Props> = ({delivery, handleChange}) => {
@@ -16,6 +17,9 @@ const DeliverySection: React.FC<Props> = ({delivery, handleChange}) => {
 
     const changeMode = () => {
         setEditMode(!editMode)
+        if (editMode)
+            handleChange('isValid')(false)
+        handleChange('isValid')(true)
     }
 
     return (
@@ -66,27 +70,56 @@ const DeliverySection: React.FC<Props> = ({delivery, handleChange}) => {
                             />
                         </FormControl>
                     </div>
+                    <div className={styles.formRow}>
+                        <FormControl className={styles.formControl}>
+                            <InputLabel htmlFor="outlined-adornment-address">Address Line</InputLabel>
+                            <Input
+                                required
+                                id={'outlined-adornment-address'}
+                                autoComplete={'address'}
+                                type={'text'}
+                                value={delivery.addressLine}
+                                onChange={handleChange('addressLine')}
+                            />
+                        </FormControl>
+                        <FormControl className={styles.formControl}>
+                            <InputLabel htmlFor="outlined-adornment-index">Index</InputLabel>
+                            <Input
+                                required
+                                id={'outlined-adornment-index'}
+                                autoComplete={'postal-code'}
+                                type={'text'}
+                                value={delivery.index}
+                                onChange={handleChange('index')}
+                            />
+                        </FormControl>
+                    </div>
                     <FormControl className={styles.formControl}>
-                        <InputLabel htmlFor="outlined-adornment-address">Address Line</InputLabel>
-                        <Input
-                            required
-                            id={'outlined-adornment-address'}
-                            autoComplete={'address'}
-                            type={'text'}
-                            value={delivery.addressLine}
-                            onChange={handleChange('addressLine')}
-                        />
+                        <InputLabel shrink htmlFor="method-native-label-placeholder">Method</InputLabel>
+                        <NativeSelect
+                            value={delivery.method}
+                            onChange={handleChange('method')}
+                            inputProps={{
+                                name: 'method',
+                                id: 'method-native-label-placeholder',
+                            }}
+                        >
+                            <option value={'EMS Economy'}>EMS Economy</option>
+                            <option value={'UPS Express'}>UPS Express</option>
+                            <option value={'FedEx'}>FedEx</option>
+                            <option value={'DHL International'}>DHL International</option>
+                        </NativeSelect>
                     </FormControl>
                     <Button color={'primary'} style={{width: '160px', marginTop: '15px'}}>Save</Button>
                 </form>
                 :
                 <div className={styles.address}>
-                    <p>{delivery.fullName}</p>
-                    <p>{delivery.phone}</p>
+                    <p>{delivery.fullName}, {delivery.phone}</p>
                     <p>{delivery.email}</p>
                     {delivery.country && delivery.city &&
-                    <p>{delivery.country}, {delivery.city}</p>}
+                    <p>{delivery.country}, {delivery.city} {delivery.index}</p>}
                     <p>{delivery.addressLine}</p>
+                    <p>{delivery.method}</p>
                     <span onClick={changeMode} className={styles.changeBtn}>Change...</span>
                 </div>
             }

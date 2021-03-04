@@ -28,7 +28,10 @@ export type DeliveryType = {
     index: number,
     email: string
     details: string | null,
-    method: 'EMS Economy' | 'UPS Express' | 'FedEx' | 'DHL International'
+    method: DeliveryMethodType,
+    isValid: boolean
 }
+
+export type DeliveryMethodType = 'EMS Economy' | 'UPS Express' | 'FedEx' | 'DHL International'
 
 export type DeliveryStatusType = 'In Processing' | 'Delivering' | 'Completed'
