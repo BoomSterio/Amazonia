@@ -9,3 +9,10 @@
 .container {
     width: 100%;
 }
+
+@media (max-width: 767px) {
+    .admin {
+        margin: 0;
+        padding: 0;
+    }
+}

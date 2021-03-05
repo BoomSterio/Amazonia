@@ -4,27 +4,30 @@
     flex-direction: column;
     width: 100%;
     margin-bottom: 20px;
-
 }
 
 .form form {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 550px;
 }
 
-.imageForms {
+.multi {
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: space-between;
 }
 
+.multi button {
+    margin: 10px 0;
+}
+
 .formControl {
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .imageInput {
@@ -43,9 +46,33 @@
 }
 
 .description {
-    width: 100%;
+    width: 100% !important;
+    margin-bottom: 5px;
 }
 
 .input {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.specInput {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 676px) {
+    .form form {
+        display: flex;
+        align-items: center;
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form {
+        align-items: flex-start;
+        padding: 0 !important;
+    }
+    .form form {
+        max-width: 310px;
+    }
 }

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react'
+import React, {useState} from 'react'
 import styles from './CartProduct.module.css'
 import {CartProductType} from '../../../../types/types'
 // @ts-ignore
@@ -15,7 +15,7 @@ type Props = {
 }
 
 const CartProduct: React.FC<CartProductType & Props> = (props) => {
-    const {id, title, image, price, rating, quantity = 1,
+    const {id, title, image, price, rating, inStock, quantity = 1,
         animationDuration = 300, direction = 'right', editable = true} = props
 
     const [remove, setRemove] = useState(false)
@@ -41,10 +41,10 @@ const CartProduct: React.FC<CartProductType & Props> = (props) => {
                 <img className={styles.image} src={image} alt={'cart item'}/>
                 <div className={styles.info}>
                     <div className={styles.title}>{title}</div>
-                    <span className={styles.availability}>In Stock</span>
+                    <span className={styles.availability}>{inStock >= 50 ? 'In Stock' : `${inStock} items available`}</span>
                     <Rating size={'small'} defaultValue={rating} precision={0.5} readOnly/>
                     <div className={styles.options}>
-                        <Input className={styles.quantity} onBlur={changeQuantity} inputProps={{min: 0, max: 100}}
+                        <Input className={styles.quantity} onBlur={changeQuantity} inputProps={{min: 0, max: inStock}}
                                type={'number'} defaultValue={quantity} disabled={!editable}/>
                         {editable &&
                         <>

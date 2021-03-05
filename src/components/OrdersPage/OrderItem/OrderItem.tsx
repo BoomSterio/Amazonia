@@ -1,69 +1,92 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './OrderItem.module.css'
 import {CartProductType, DeliveryStatusType, DeliveryType} from '../../../types/types'
 import moment from 'moment'
 import CartProduct from '../../CheckoutPage/Cart/CartProduct/CartProduct'
 import CurrencyPrice from '../../common/CurrencyPrice/CurrencyPrice'
-import {Accordion, AccordionDetails, AccordionSummary} from '@material-ui/core'
+import {Accordion, AccordionDetails, AccordionSummary, MenuItem, Select} from '@material-ui/core'
 import {ExpandMore} from '@material-ui/icons'
 
 type Props = {
     order: {
-        id: string,
-        data: {
-            amount: number,
-            cart: CartProductType[],
-            delivery: DeliveryType,
-            created: number,
-            status: DeliveryStatusType
-        }
-    }
+        amount: number,
+        cart: CartProductType[],
+        delivery: DeliveryType,
+        created: number,
+        status: DeliveryStatusType
+    },
+    editMode?: boolean,
+    handleStatusChange?: (created: number) => (e: React.ChangeEvent<{ name?: string | undefined; value: unknown; }>) => void
 }
 
-const OrderItem: React.FC<Props> = ({order}) => {
-    const boughtItems = order.data.cart.map(item => <CartProduct
-        editable={false}
-        animationDuration={0}
-        key={item.id}
-        id={item.id}
-        price={item.price}
-        title={item.title}
-        image={item.image}
-        rating={item.rating}
-        quantity={item.quantity}
-    />)
+const OrderItem: React.FC<Props> = ({order, editMode = false, handleStatusChange}) => {
+    let statusColor
+    switch (order.status) {
+        case 'In Processing':
+            statusColor = 'red'
+            break
+        case 'Delivering':
+            statusColor = 'orange'
+            break
+        case 'Completed':
+            statusColor = 'green'
+            break
+        default:
+            statusColor = 'black'
+    }
+
+        const boughtItems = order.cart.map(item => <CartProduct
+            editable={false}
+            animationDuration={0}
+            key={item.id}
+            id={item.id}
+            price={item.price}
+            title={item.title}
+            image={item.image}
+            rating={item.rating}
+            quantity={item.quantity}
+        />)
 
     return (
-        <div className={styles.order}>
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMore />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                >
-                    <div className={styles.info}>
-                        <h4>Order #<span className={styles.id}>{order.id}</span></h4>
-                        <p className={styles.date}>{moment.unix(order.data.created).format('MMMM Do YYYY, h:mma')}</p>
-                        <span className={styles.status} style={{color: `${order.data.status === 'In Processing' ? 'red' : 
-                                order.data.status === 'Delivering' ? 'orange' : 'green'}`}}>{order.data.status}</span>
-                    </div>
-                </AccordionSummary>
-                <AccordionDetails className={styles.details}>
-                    <div>
-                        {boughtItems}
-                    </div>
-                    <div className={styles.additional}>
-                        <div>
-                            <p>{order.data.delivery.fullName} {order.data.delivery.phone}</p>
-                            <p>{order.data.delivery.country}, {order.data.delivery.city}. {order.data.delivery.addressLine}</p>
-                            <p>{order.data.delivery.method}</p>
+            <div className={styles.order}>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMore/>}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <div className={styles.info}>
+                            <h4>Order #<span className={styles.id}>{order.created}</span></h4>
+                            <p className={styles.date}>{moment.unix(order.created).format('MMMM Do YYYY, h:mma')}</p>
+                            {editMode ?
+                            <Select className={styles.status} style={{color: `${statusColor}`}} value={order.status} onChange={handleStatusChange ? handleStatusChange(order.created) : () => {}}>
+                                <MenuItem value={'In Processing'}>In Processing</MenuItem>
+                                <MenuItem value={'Delivering'}>Delivering</MenuItem>
+                                <MenuItem value={'Completed'}>Completed</MenuItem>
+                                <MenuItem value={'Cancelled'}>Cancelled</MenuItem>
+                            </Select>
+                            :
+                                <span className={styles.status} style={{color: `${statusColor}`}}>
+                                    {order.status}
+                                </span>}
                         </div>
-                        <CurrencyPrice value={order.data.amount / 100} text={'Order total: '}/>
-                    </div>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-    )
+                    </AccordionSummary>
+                    <AccordionDetails className={styles.details}>
+                        <div>
+                            {boughtItems}
+                        </div>
+                        <div className={styles.additional}>
+                            <div>
+                                <p>{order.delivery.fullName} {order.delivery.phone}</p>
+                                <p>{order.delivery.country}, {order.delivery.city}. {order.delivery.addressLine}</p>
+                                <p>{order.delivery.method}</p>
+                            </div>
+                            <CurrencyPrice value={order.amount / 100} text={'Order total: '}/>
+                        </div>
+                    </AccordionDetails>
+                </Accordion>
+            </div>
+        )
 }
 
 export default OrderItem

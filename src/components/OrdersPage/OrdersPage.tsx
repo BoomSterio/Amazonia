@@ -5,33 +5,40 @@ import {useSelector} from 'react-redux'
 import {getAuthUser} from '../../redux/selectors/auth-selectors'
 import OrderItem from './OrderItem/OrderItem'
 import {Helmet} from 'react-helmet'
+import {dbAPI} from '../../api/db-api'
 
 const OrdersPage: React.FC = () => {
-    const [orders, setOrders] = useState([])
+    const [orders, setOrders] = useState({
+        id: '',
+        data: []
+    })
 
     const user = useSelector(getAuthUser)
 
     useEffect(() => {
-        if(user.id) {
+        if (user.id) {
             db
                 .collection('users')
-                .doc(user.id as string)
-                .collection('orders')
-                .orderBy('created', 'desc')
-                .onSnapshot(snapshot => (
+                .doc(user.id)
+                .get()
+                .then(snapshot => {
                     // @ts-ignore
-                    setOrders(snapshot.docs.map(doc => ({
-                        id: doc.id,
-                        data: doc.data()
-                    })))
-                ))
+                    if (snapshot.exists) {
+                        setOrders({
+                            id: snapshot.id,
+                            // @ts-ignore
+                            data: snapshot.data().orders.map((order:any) => order)
+                        })
+                    }
+                })
         } else {
-            setOrders([])
+            setOrders({id: '', data: []})
         }
 
     }, [user])
 
-    const ordersItems = orders.map((order, i) => <OrderItem key={i} order={order}/>)
+    // @ts-ignore
+    const ordersItems = [...orders.data].reverse().map((order, i) => <OrderItem key={i} order={order}/>)
 
     return (
         <div className={styles.orders}>

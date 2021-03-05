@@ -5,7 +5,7 @@ import styles from './Footer.module.css'
 const Footer: React.FC = () => {
     return (
         <div className={styles.footer}>
-            <div className={styles.backToTop}>Back to top</div>
+            <div onClick={() => {window.scrollTo(0,0)}} className={styles.backToTop}>Back to top</div>
             <div className={styles.navTop}>
                 <div className={styles.container}>
                     <div>
