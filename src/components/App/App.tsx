@@ -16,7 +16,7 @@ import {Elements} from '@stripe/react-stripe-js'
 import Footer from '../Footer/Footer'
 import {initializeApp} from '../../redux/thunks/app-thunks'
 import Preloader from '../common/Preloader/Preloader'
-import ProductPage from '../ProductPage/ProductPage'
+import ProductReview from '../ProductReview/ProductReview'
 
 const promise = loadStripe('pk_test_51IPDXrHdKa0qwLLpHqPY1OEV9mbMqBFcpIRn4YQSU0GL1oAh62Ih2kJm3DfqvO0gNV3kcpd5M0SgyRum3oIlaxi400iXlz8Hf1')
 
@@ -25,10 +25,10 @@ const App = withRouter((props: RouteComponentProps) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-       dispatch(initializeApp())
+        dispatch(initializeApp())
     }, [])
 
-    if(!initialized)
+    if (!initialized)
         return <Preloader/>
 
     return (
@@ -36,7 +36,7 @@ const App = withRouter((props: RouteComponentProps) => {
             {props.location.pathname !== '/login' && <Header/>}
             <Switch>
                 <Route exact path={'/'}><HomePage/></Route>
-                <Route path={'/product/:id?'} render={ProductPage}/>
+                <Route path={'/product/:id?'}><ProductReview/></Route>
                 <Route path={'/checkout'}><CheckoutPage/></Route>
                 <Route path={'/payment'}><Elements stripe={promise}><PaymentPage/></Elements></Route>
                 <Route path={'/orders'}><OrdersPage/></Route>
@@ -51,11 +51,9 @@ const App = withRouter((props: RouteComponentProps) => {
 
 const AppWrap: React.FC = () => {
     return (
-        <BrowserRouter>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </BrowserRouter>
+        <Provider store={store}>
+            <App/>
+        </Provider>
     )
 }
 

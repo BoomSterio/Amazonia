@@ -31,4 +31,4 @@ export const startAuthStateListening = (): ThunkType => async (dispatch: any) =>
     })
 }
 
-type ThunkType = BaseThunkType<AuthActionsType>
+export type ThunkType = BaseThunkType<AuthActionsType>

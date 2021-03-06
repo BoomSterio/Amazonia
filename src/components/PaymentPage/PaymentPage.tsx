@@ -45,6 +45,7 @@ const PaymentPage: React.FC = () => {
             image={item.image}
             rating={item.rating}
             quantity={item.quantity}
+            inStock={item.inStock}
             direction={'left'}
         />
     )

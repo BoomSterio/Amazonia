@@ -1,21 +1,18 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import styles from './Recommended.module.css'
 import ProductCard from '../../common/ProductCard/ProductCard'
-import {db} from '../../../api/firebase'
 import {FullProductType} from '../../../types/types'
-import {Redirect} from 'react-router'
-import {Link} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
+import {fetchProducts} from '../../../redux/thunks/products-thunks'
+import {getAllProducts} from '../../../redux/selectors/products-selectors'
 
 const Recommended: React.FC = () => {
-    const [recommended, setRecommended] = useState([] as any)
+    const recommended = useSelector(getAllProducts)
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        db
-            .collection('products')
-            .limit(6)
-            .get()
-            .then(p => setRecommended(p.docs.map(doc => (doc.data()))))
-
+        dispatch(fetchProducts(6))
     }, [])
 
     return (

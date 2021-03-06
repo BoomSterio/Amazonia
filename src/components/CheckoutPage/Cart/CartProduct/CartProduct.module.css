@@ -12,6 +12,7 @@
     height: 180px;
     object-fit: contain;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .info {
@@ -27,6 +28,7 @@
     font-weight: 700;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

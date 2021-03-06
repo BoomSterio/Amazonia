@@ -7,6 +7,7 @@ import {Rating} from '@material-ui/lab'
 import {Input, Slide} from '@material-ui/core'
 import {useDispatch} from 'react-redux'
 import {checkoutActions} from '../../../../redux/actions/checkout-actions'
+import {useHistory} from 'react-router'
 
 type Props = {
     animationDuration?: number,
@@ -20,6 +21,7 @@ const CartProduct: React.FC<CartProductType & Props> = (props) => {
 
     const [remove, setRemove] = useState(false)
 
+    const history = useHistory()
     const dispatch = useDispatch()
 
     const changeQuantity = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,12 +37,16 @@ const CartProduct: React.FC<CartProductType & Props> = (props) => {
         setTimeout(() => dispatch(checkoutActions.deleteFromCart(id)), animationDuration)
     }
 
+    const goToProduct = () => {
+        history.push(`/product/${id}`)
+    }
+
     return (
         <Slide direction={direction} in={!remove} timeout={{enter: animationDuration, exit: animationDuration}}>
             <div className={styles.product}>
-                <img className={styles.image} src={image} alt={'cart item'}/>
+                <img onClick={goToProduct} className={styles.image} src={image} alt={'cart item'}/>
                 <div className={styles.info}>
-                    <div className={styles.title}>{title}</div>
+                    <div onClick={goToProduct} className={styles.title}>{title}</div>
                     <span className={styles.availability}>{inStock >= 50 ? 'In Stock' : `${inStock} items available`}</span>
                     <Rating size={'small'} defaultValue={rating} precision={0.5} readOnly/>
                     <div className={styles.options}>

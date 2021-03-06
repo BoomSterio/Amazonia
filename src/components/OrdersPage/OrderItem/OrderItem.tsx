@@ -45,6 +45,7 @@ const OrderItem: React.FC<Props> = ({order, editMode = false, handleStatusChange
             image={item.image}
             rating={item.rating}
             quantity={item.quantity}
+            inStock={item.inStock}
         />)
 
     return (

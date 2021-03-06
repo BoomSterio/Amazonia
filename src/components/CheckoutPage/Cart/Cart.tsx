@@ -23,6 +23,7 @@ const Cart: React.FC<Props> = ({itemsCount, total}) => {
             image={item.image}
             rating={item.rating}
             quantity={item.quantity}
+            inStock={item.inStock}
         />
     )
 

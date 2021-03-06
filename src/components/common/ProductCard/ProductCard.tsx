@@ -4,7 +4,7 @@ import {Rating} from '@material-ui/lab'
 import {useDispatch} from 'react-redux'
 import {checkoutActions} from '../../../redux/actions/checkout-actions'
 import {createToast} from '../Toast/Toast'
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 // @ts-ignore
 import {default as CurrencyFormat} from 'react-currency-format'
 import {FullProductType} from '../../../types/types'
@@ -15,6 +15,7 @@ const ProductCard: React.FC<FullProductType> = (props) => {
     const {id, title, images, specs, description, price, rating, inStock} = props
     const [quantity, setQuantity] = useState(1)
 
+    const history = useHistory()
     const dispatch = useDispatch()
 
     const addToBasket = () => {
@@ -37,15 +38,15 @@ const ProductCard: React.FC<FullProductType> = (props) => {
             setQuantity(Number(e.target.value))
     }
 
+    const toProductPage = () => {
+        history.push(`/product/${id}`)
+    }
+
     return (
         <div className={styles.product}>
-            <Link to={{pathname: `/product/${id}`, state: props}}>
-                <img className={styles.image} src={images[0]} alt={'product'}/>
-            </Link>
+            <img className={styles.image} src={images[0]} alt={'product'} onClick={toProductPage}/>
             <div className={styles.info}>
-                <Link to={{pathname: `/product/${id}`, state: props}}>
-                    <h3>{title}</h3>
-                </Link>
+                <h3 onClick={toProductPage}>{title}</h3>
                 <div className={styles.rating}>
                     <Rating size={'small'} defaultValue={rating} precision={0.5} readOnly/>
                     <p>{rating}</p>
