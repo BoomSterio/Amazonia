@@ -1,79 +1,79 @@
 .product {
-    display: flex;
-    padding: 12px;
-    padding-right: 0;
-    border: solid lightgray;
-    border-width: 1px 0 1px 0;
-    margin-top: -1px;
+  display: flex;
+  padding: 12px;
+  padding-right: 0;
+  border: solid lightgray;
+  border-width: 1px 0 1px 0;
+  margin-top: -1px;
 }
 
 .image {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    margin-right: 10px;
-    cursor: pointer;
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
-    margin-bottom: 5px;
-    font-size: 18px;
-    line-height: 24px;
-    color: #007185;
-    font-weight: 700;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+  margin-bottom: 5px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #007185;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .price {
-    font-size: 18px;
-    margin-left: auto;
+  font-size: 18px;
+  margin-left: auto;
 }
 
 .availability {
-    font-size: 12px;
-    color: #007600;
+  font-size: 12px;
+  color: #007600;
 }
 
 .options {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .option {
-    padding: 0 8px;
-    color: #007185;
-    font-size: 12px;
-    cursor: pointer;
-    border-left: 1px solid darkgray;
+  padding: 0 8px;
+  color: #007185;
+  font-size: 12px;
+  cursor: pointer;
+  border-left: 1px solid darkgray;
 }
 
 .option:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .quantity {
-    width: 45px;
+  width: 45px;
 }
 
 @media (max-width: 676px) {
-    .product {
-        flex-direction: column;
-    }
-    .image {
-        width: 220px;
-        align-self: center;
-    }
-    .price {
-        margin: 4px 0;
-    }
+  .product {
+    flex-direction: column;
+  }
+  .image {
+    width: 220px;
+    align-self: center;
+  }
+  .price {
+    margin: 4px 0;
+  }
 }

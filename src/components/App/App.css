@@ -1,9 +1,19 @@
+.option-small {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.option-small:hover {
+  color: #f19102;
+  text-decoration: underline;
+}
+
 .Toastify__progress-bar--dark {
-    background: #f19102 !important;
+  background: #f19102 !important;
 }
 
 @media (min-width: 481px) {
-    .Toastify__toast-container {
-        width: 400px !important;
-    }
+  .Toastify__toast-container {
+    width: 400px !important;
+  }
 }

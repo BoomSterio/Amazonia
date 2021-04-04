@@ -1,18 +1,18 @@
 .admin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 30px 25px;
 }
 
 .container {
-    width: 100%;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
-    .admin {
-        margin: 0;
-        padding: 0;
-    }
+  .admin {
+    margin: 0;
+    padding: 0;
+  }
 }

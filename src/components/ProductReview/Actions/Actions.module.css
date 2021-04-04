@@ -1,0 +1,56 @@
+.actions {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 0 15px;
+  width: 100%;
+  flex: 0.2;
+  height: 240px !important;
+}
+
+.price {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #b12704;
+}
+
+.price span {
+  color: #565959;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.inStockGreen {
+  margin: 10px 0;
+  font-size: 18px;
+  color: green;
+}
+
+.inStockRed {
+  margin: 10px 0;
+  font-size: 18px;
+  color: orange;
+}
+
+.qty {
+  width: 120px;
+}
+
+.purchase {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  .actions {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    width: 75%;
+    margin: 0;
+    margin-top: 10px;
+  }
+}

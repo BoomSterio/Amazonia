@@ -1,28 +1,28 @@
+.primary,
+.secondary {
+  width: 100%;
+  height: 29px;
+  border: 1px solid;
+  border-radius: 4px;
+  color: #111;
+  inset: 0;
+  cursor: pointer;
+  outline: none;
+}
+
 .primary {
-    align-self: center;
-    width: 100%;
-    height: 29px;
-    background: linear-gradient(rgb(254, 230, 176), rgb(238, 186, 55)) rgb(254, 230, 176);
-    border: 1px solid;
-    border-color: #a88734 #9c7e31 #846a29;
-    border-radius: 4px;
-    color: #111;
-    inset: 0;
-    cursor: pointer;
-    outline: none;
+  background: linear-gradient(rgb(254, 230, 176), rgb(238, 186, 55)) rgb(254, 230, 176);
+  border-color: #a88734 #9c7e31 #846a29;
 }
 
 .primary:hover {
-    background: rgb(238, 186, 55);
+  background: rgb(238, 186, 55);
 }
 
 .secondary {
-    height: 29px;
-    width: 100%;
-    border: 1px solid darkgray;
-    border-radius: 3px;
-    background: linear-gradient(0deg, rgba(222,222,222,1) 0%, rgba(255,255,255,1) 100%);
+  border: 1px solid darkgray;
+  background: linear-gradient(0deg, rgba(222, 222, 222, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 .secondary:hover {
-    background: rgba(222,222,222,1);
+  background: rgba(222, 222, 222, 1);
 }

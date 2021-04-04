@@ -1,40 +1,40 @@
 .title {
-    width: 150px;
+  width: 150px;
 }
 
 .details {
-    width: 100%;
+  width: 100%;
 }
 
 .details form {
-    width: 320px;
+  width: 320px;
 }
 
 .price {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .button {
-    align-self: center;
-    width: 100%;
-    height: 29px;
-    background: linear-gradient(rgb(254, 230, 176), rgb(238, 186, 55)) rgb(254, 230, 176);
-    border: 1px solid;
-    border-color: #a88734 #9c7e31 #846a29;
-    border-radius: 4px;
-    margin-top: 20px;
-    color: #111;
-    inset: 0;
-    cursor: pointer;
-    outline: none;
+  align-self: center;
+  width: 100%;
+  height: 29px;
+  background: linear-gradient(rgb(254, 230, 176), rgb(238, 186, 55)) rgb(254, 230, 176);
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 4px;
+  margin-top: 20px;
+  color: #111;
+  inset: 0;
+  cursor: pointer;
+  outline: none;
 }
 
 .button:hover {
-    background: rgb(238, 186, 55);
+  background: rgb(238, 186, 55);
 }
 
 @media (max-width: 480px) {
-    .details form {
-        width: 300px;
-    }
+  .details form {
+    width: 300px;
+  }
 }

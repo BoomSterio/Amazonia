@@ -1,9 +1,9 @@
-import {AppStateType} from '../redux-store'
+import { AppStateType } from '../redux-store'
 
 export const getAuthUser = (state: AppStateType) => {
-    return state.auth.user
+  return state.auth.user
 }
 
 export const getIsAuth = (state: AppStateType) => {
-    return state.auth.isAuth
+  return state.auth.isAuth
 }

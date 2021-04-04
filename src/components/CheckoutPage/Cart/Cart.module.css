@@ -1,27 +1,27 @@
 .cart {
-    background-color: white;
-    padding: 0 20px;
+  background-color: white;
+  padding: 0 20px;
 }
 
 .title {
-    padding-top: 10px;
-    font-weight: 400;
-    font-size: 28px;
+  padding-top: 10px;
+  font-weight: 400;
+  font-size: 28px;
 }
 
 .cart p {
-    font-size: 14px;
-    color: #565959;
-    font-weight: 500;
-    text-align: right;
+  font-size: 14px;
+  color: #565959;
+  font-weight: 500;
+  text-align: right;
 }
 
 .total {
-    padding: 5px 0;
-    padding-bottom: 20px;
-    text-align: right;
+  padding: 5px 0;
+  padding-bottom: 20px;
+  text-align: right;
 }
 
 .total p {
-    font-size: 18px;
+  font-size: 18px;
 }

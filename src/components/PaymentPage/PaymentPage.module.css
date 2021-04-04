@@ -1,34 +1,34 @@
 .payment {
-    padding: 20px 26px;
+  padding: 20px 26px;
 }
 
 .container {
-    background-color: white;
+  background-color: white;
 }
 
 .section {
-    display: flex;
-    padding: 15px;
-    margin: 0 15px;
-    border-bottom: 1px solid lightgray;
+  display: flex;
+  padding: 15px;
+  margin: 0 15px;
+  border-bottom: 1px solid lightgray;
 }
 
 .title {
-    width: 150px;
+  width: 150px;
 }
 
 .items {
-    width: 100%;
+  width: 100%;
 }
 
 @media (max-width: 480px) {
-    .payment {
-        padding: 0;
-    }
-    .section {
-        flex-direction: column;
-        align-items: center;
-        padding: 5px;
-        margin: 0;
-    }
+  .payment {
+    padding: 0;
+  }
+  .section {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    margin: 0;
+  }
 }

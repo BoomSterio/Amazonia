@@ -1,83 +1,73 @@
 .menuDrop {
-    display: flex;
-    flex-direction: column;
-    padding: 0 15px;
-    width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  width: 400px;
 }
 
 .signIn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
 }
 
 .signInBtn {
-    align-self: center;
-    width: 200px;
-    height: 29px;
-    background: linear-gradient(rgb(254, 230, 176), rgb(238, 186, 55)) rgb(254, 230, 176);
-    border: 1px solid;
-    border-color: #a88734 #9c7e31 #846a29;
-    border-radius: 4px;
-    margin-top: 20px;
-    color: #111;
-    inset: 0;
-    cursor: pointer;
-    outline: none;
+  align-self: center;
+  width: 200px;
+  height: 29px;
+  background: linear-gradient(rgb(254, 230, 176), rgb(238, 186, 55)) rgb(254, 230, 176);
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 4px;
+  margin-top: 20px;
+  color: #111;
+  inset: 0;
+  cursor: pointer;
+  outline: none;
 }
 
 .signInBtn:hover {
-    background: rgb(238, 186, 55);
+  background: rgb(238, 186, 55);
 }
 
 .register {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .register:hover {
-    color: #f19102;
-    text-decoration: underline;
-    cursor: pointer;
+  color: #f19102;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .signIn span {
-    font-size: 10px;
-    margin: 5px 0;
+  font-size: 10px;
+  margin: 5px 0;
 }
 
 .columns {
-    display: flex;
-    align-items: flex-start;
-    margin: 10px 0;
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
 }
 
 .columns h4 {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .optionsFirst {
-    display: flex;
-    flex-direction: column;
-    flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
 }
 
 .optionsSecond {
-    display: flex;
-    flex-direction: column;
-    flex: 0.5;
-    padding-left: 10px;
-    -webkit-box-shadow: -1px 0px 0px 0px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: -1px 0px 0px 0px rgba(34, 60, 80, 0.2);
-    box-shadow: -1px 0px 0px 0px rgba(34, 60, 80, 0.2);
-}
-
-.option {
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.option:hover {
-    color: #f19102;
-    text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+  padding-left: 10px;
+  -webkit-box-shadow: -1px 0px 0px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: -1px 0px 0px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: -1px 0px 0px 0px rgba(34, 60, 80, 0.2);
 }

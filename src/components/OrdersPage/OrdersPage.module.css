@@ -1,19 +1,19 @@
 .orders {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding: 15px 40px;
-    background-color: white;
-    min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 15px 40px;
+  background-color: white;
+  min-height: 50vh;
 }
 
 .orders h2 {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 @media (max-width: 767px) {
-    .orders {
-        margin: 0;
-        padding: 15px 10px;
-    }
+  .orders {
+    margin: 0;
+    padding: 15px 10px;
+  }
 }

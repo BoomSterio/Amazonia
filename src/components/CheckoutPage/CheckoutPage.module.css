@@ -1,27 +1,27 @@
 .checkout {
-    display: flex;
-    padding: 20px;
-    height: max-content;
+  display: flex;
+  padding: 20px;
+  height: max-content;
 }
 
 .left {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .ad {
-    width: 100%;
-    margin-bottom: 10px;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 676px) {
-    .checkout {
-        flex-direction: column-reverse;
-        padding: 5px;
-    }
-    .left{
-        margin: 0;
-    }
-    .ad{
-        display: none;
-    }
+  .checkout {
+    flex-direction: column-reverse;
+    padding: 5px;
+  }
+  .left {
+    margin: 0;
+  }
+  .ad {
+    display: none;
+  }
 }

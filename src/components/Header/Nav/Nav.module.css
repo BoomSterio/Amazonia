@@ -1,68 +1,68 @@
 .nav {
-    display: flex;
-    justify-content: space-evenly;
-    color: white;
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
 }
 
 .option {
-    display: flex;
-    flex-direction: column;
-    margin-left: 6px;
-    padding: 4px 9px;
-    cursor: pointer;
-    color: white;
-    text-decoration: none !important;
-    border: 1px solid transparent;
-    transition: all .1s;
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+  padding: 4px 9px;
+  cursor: pointer;
+  color: white;
+  text-decoration: none !important;
+  border: 1px solid transparent;
+  transition: all 0.1s;
 }
 
 .option:hover {
-    border: 1px solid white;
-    border-radius: 2px;
+  border: 1px solid white;
+  border-radius: 2px;
 }
 
 .optionLineOne {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .optionLineTwo {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 700;
-    margin-top: -4px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: -4px;
 }
 
 .dropDownIcon {
-    align-self: flex-end;
-    font-size: 16px;
-    color: lightgray;
+  align-self: flex-end;
+  font-size: 16px;
+  color: lightgray;
 }
 
 .optionCart {
-    flex-direction: row;
-    align-items: center;
-    margin-right: 15px;
-    color: inherit;
-    text-decoration: inherit;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 15px;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 .basketCount {
-    margin-left: 5px;
-    font-weight: 700;
-    color: #f19102;
+  margin-left: 5px;
+  font-weight: 700;
+  color: #f19102;
 }
 
 .menuBurger {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 767px) {
-    div.option {
-        display: none;
-    }
-    .menuBurger {
-        display: flex;
-        align-self: center;
-    }
+  div.option {
+    display: none;
+  }
+  .menuBurger {
+    display: flex;
+    align-self: center;
+  }
 }
